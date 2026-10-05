@@ -1,3 +1,4 @@
-data/
+data/raw/
+data/parsed/**/*.parquet
 .venv/
 __pycache__/

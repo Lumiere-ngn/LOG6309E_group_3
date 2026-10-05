@@ -1,0 +1,5 @@
+BGL: 1,000,000 lines, 165 templates, 12s
+BGL: 2,000,000 lines, 489 templates, 22s
+BGL: 3,000,000 lines, 1134 templates, 35s
+BGL: 4,000,000 lines, 1188 templates, 52s
+BGL: done, 4,747,963 lines, 3548 Drain clusters -> 379 events, 75s -> /home/minh/devops/LOG6309E_group_3/data/parsed/BGL

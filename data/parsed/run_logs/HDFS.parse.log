@@ -1,0 +1,12 @@
+HDFS: 1,000,000 lines, 36 templates, 8s
+HDFS: 2,000,000 lines, 40 templates, 15s
+HDFS: 3,000,000 lines, 42 templates, 23s
+HDFS: 4,000,000 lines, 42 templates, 31s
+HDFS: 5,000,000 lines, 44 templates, 38s
+HDFS: 6,000,000 lines, 44 templates, 46s
+HDFS: 7,000,000 lines, 45 templates, 54s
+HDFS: 8,000,000 lines, 46 templates, 63s
+HDFS: 9,000,000 lines, 48 templates, 70s
+HDFS: 10,000,000 lines, 48 templates, 78s
+HDFS: 11,000,000 lines, 48 templates, 85s
+HDFS: done, 11,175,629 lines, 48 Drain clusters -> 48 events, 103s -> /home/minh/devops/LOG6309E_group_3/data/parsed/HDFS

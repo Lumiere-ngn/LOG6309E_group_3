@@ -1,0 +1,380 @@
+EventId,EventTemplate,Occurrences
+070de4aa,generating <*>,1706751
+1b700d02,iar <*> dear <*>,442966
+6265c739,<*> double-hummer alignment exceptions,295764
+1ae4a1e2,<*> floating point alignment exceptions,267725
+60b301fc,"CE sym <*> at <*>, mask <*>",201206
+38a7307d,data TLB error interrupt,152734
+0045c3a8,"<*> total interrupts. <*> critical input interrupts. <*> microseconds total spent on critical input interrupts, <*> microseconds max time in a critical input interrupt.",135092
+322228ab,<*> microseconds spent in the rbs signal handler during <*> calls. <*> microseconds was the maximum time for a single instance of a correctable ddr.,135092
+3aa50e45,instruction cache parity error corrected,105924
+ba825709,idoproxydb hit ASSERT condition:<*>SSERT <*> Source <*> Source line=<*> Function=int <*> <*>,84250
+d2c9db9b,data storage interrupt,63493
+11b69b8b,ciod: generated <*> core files for program <*>,62484
+cc8ff6de,program interrupt: <*> <*>,57874
+a31b789f,instruction address: <*>,51227
+57138c88,"ciod: Error loading <*> invalid or missing program image, No such file or directory",46416
+14838f8d,ciod:<*>OGIN <*> failed: No such file or directory,43647
+7c363edf,"ciod: Error loading <*> invalid or missing program image, Permission denied",43040
+d896d1ea,"ciod: Received signal <*> code=<*>, errno=<*>, address=<*>",39457
+4b700582,<EMPTY>,34470
+d3e73bc3,"<*> ddr errors(s) detected and corrected on rank 0, symbol <*> bit <*>",33939
+ad69fd32,ciod: Error reading message prefix on CioStream socket to <*> <*> <*> <*> <*>,28802
+147cfcff,total of <*> ddr error(s) detected and corrected,28485
+f80a5ed5,Lustre mount FAILED : <*> : point /p/gb1,26426
+b0c7e307,ciod: Error reading message prefix after <*> on CioStream socket to 172.16.96.<*>:<*>: <*> <*> <*> <*>,23219
+2fe09ae5,"Kernel detected <*> integer alignment exceptions <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*>",22175
+665ebbac,"ciod: Error loading <*> invalid or missing program image, <*> <*> <*>",22040
+a9e00b87,Node card VPD <*> node in processor card slot <*> do not match. VPD ecid <*> found <*>,21356
+9851467f,data store interrupt caused by <*>,19646
+130bb340,rts: kernel terminated for reason <*>,18587
+7d4f15a2,<*>:<*> <*>:<*> <*>:<*> <*>:<*>,18541
+614cf99e,machine check: i-fetch......................<*>,18017
+cce08081,exception syndrome register: <*>,18013
+a2335b6b,Node card is not fully functional,17364
+9d5d6232,Can not get assembly information for node card,17305
+a814cc3b,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> <*> OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. The 1.5 volt rail is OK.,16897
+22550c73,data address: <*>,14499
+f4182236,MACHINE CHECK <*> <*> <*> <*> iar <*> lr <*>),14482
+996c9c62,data cache <*> parity error detected. attempting to correct,14006
+f4a80ec4,floating pt ex mode <*> enable......<*>,13044
+e4baaf63,Ido chip status <*> <*> v=<*> t=<*> status=M <*> <*> <*> <*> <*> 2005,11904
+d6e5f01c,<*> torus receiver <*> input pipe error(s) (dcr <*> detected and corrected,10487
+71fcff11,"<*> ddr error(s) detected and corrected on rank 0, symbol <*> over <*> seconds",10436
+8df7ac9e,total of <*> ddr error(s) detected and corrected over <*> seconds,10415
+abff2903,store operation.............................<*>,9824
+89854e51,floating point operation....................<*>,9824
+8d23c697,machine state register: <*>,8454
+b48b277c,auxiliary processor.........................<*>,8419
+41c5149c,program interrupt: fp cr field .............<*>,8102
+d8f41a22,byte ordering exception.....................<*>,8102
+87710483,program interrupt: fp cr update.............<*>,8102
+c39154ae,<*> tree receiver <*> in re-synch state event(s) (dcr <*> detected,7847
+ea3efa0b,suppressing further interrupts of same type,7694
+40645e82,critical input interrupt (unit=<*> bit=<*>): warning for <*> <*> wire,7682
+ce2b6cdc,machine check <*>,6755
+493f6190,wait state enable.................<*>,6745
+fb1560b4,critical input interrupt enable...<*>,6559
+a9208363,external input interrupt enable...<*>,6556
+9ef2c92c,"problem state (0=sup,1=usr).......<*>",6546
+1bff92a7,floating point <*> <*>,6544
+3a77b37e,debug wait enable.................<*>,6524
+4aa10e18,debug interrupt enable............<*>,6521
+0b246110,instruction address space.........<*>,6506
+02430fd4,data address space................<*>,6503
+c5b54ac5,disable store gathering..................<*>,6495
+2355b700,ciod: pollControlDescriptors: Detected the debugger died.,6443
+06072e40,core configuration register: <*>,6431
+7cd80c26,"Error receiving packet on tree network, <*> <*> <*> <*> <*> <*> <*> (softheader=<*> <*> <*> <*>) PSR0=<*> PSR1=<*> PRXF=<*> PIXF=<*>",6145
+150b1306,ciod: failed to read message prefix on control stream (CioStream socket to <*>,5983
+09e2160f,Found invalid node ecid in processor card slot <*> ecid <*><*><*>0000,5558
+4496b375,ciod: Error creating node map from file <*> <*> <*> <*>,5464
+4f1ef491,Lustre mount FAILED : <*> : block_id : location,5105
+5569cffc,<*> <*> <*> error(s) (dcr <*> detected and corrected,5040
+55addd29,guaranteed <*> cache block <*>,4779
+3777cdd1,icache prefetch <*>,4777
+906b7730,Ido packet timeout,4276
+220716fc,rts panic! - stopping execution,3983
+0d02c0e2,program interrupt,3667
+18ad7153,"critical input interrupt (unit=<*> bit=<*>): warning for <*> <*> wire, suppressing further interrupts of same type",3546
+b33a40d8,ciod:<*> coordinate <*> exceeds physical dimension <*> at line <*> of node map file <*>,3512
+7a03d1e9,<*> torus receiver <*> input pipe error(s) (dcr <*> detected and corrected over <*> seconds,3512
+bde704ca,New ido chip inserted into the <*> <*> v=<*> t=<*>,3455
+7d2f5785,"rts: kernel terminated for reason 1001rts: bad message header: invalid cpu, type=<*>, cpu=<*>, <*> <*>",3334
+ebd7e5c5,L1 DCACHE summary averages: #ofDirtyLines: <*> out of 1024 #ofDirtyDblWord: <*> out of 4096,3149
+f0c191b1,<*> tree receiver <*> in re-synch state event(s) (dcr <*> detected over <*> seconds,3148
+3d677d21,"NFS Mount failed on <*> slept <*> seconds, retrying <*>",2670
+29a95bd1,ciod: cpu 0 at treeaddr <*> sent unrecognized message <*>,2569
+0328c31b,disable apu instruction broadcast........<*>,2396
+ab6d0287,disable trace broadcast..................<*>,2393
+cf145002,force load/store alignment...............<*>,2389
+43c91fa2,ciod: Error creating node map from file <*> <*> <*>,2328
+045f554d,general purpose registers:,2318
+b24e0b23,lr:<*> cr:<*> xer:<*> ctr:<*>,2316
+f7c382bd,special purpose registers:,2316
+7d268245,"PrepareForService shutting down <*> mCardSernum(<*><*><*><*><*><*>), <*> <*> <*> as part of Service Action <*>",2316
+ae934bcc,ciod: Message code <*> is not <*> or <*>95,2278
+af999985,rts internal error,2187
+5c3f2f97,fpr<*>=<*> <*> <*> <*>,2176
+46c02138,ciod: Missing or invalid fields on line 1 of node map file <*>,2048
+600efdda,ciod: Error reading message prefix on CioStream socket to <*> Connection timed out,1991
+686339fb,ciod: Error opening node map file <*> No such file or directory,1936
+5ada3a63,<*> <*> <*> error(s) (dcr <*> detected and corrected over <*> seconds,1515
+a1da6209,"ciod: Error loading <*> program image too big, <*> > <*>",1512
+04f5a2ae,Microloader Assertion,1504
+1470b976,"rts: kernel terminated for reason <*> bad message header: <*> <*> <*> type=<*>, cpu=<*>, <*> <*>",1389
+04639923,external input interrupt (unit=<*> bit=<*>): torus sender <*> retransmission error was corrected,1322
+ba77ab8e,ddr: activating redundant bit steering: rank=<*> symbol=<*>,1314
+1195dd00,rts: bad message header: <*> <*> <*> <*> <*> <*> <*> (softheader=<*> <*> <*> <*>) PSR0=<*> PSR1=<*> PRXF=<*> PIXF=<*>,1260
+46e7555d,<*> torus <*> <*> <*> error(s) (dcr <*> detected and corrected,1217
+71961023,<*> torus <*> <*> <*> error(s) (dcr <*> detected and corrected over <*> seconds,1049
+3883c56a,ciod: Error loading /p/gb1/light3/sppm_chkpt/sppm: not a CNK program image,1024
+058871d3,"ciod: Error loading -mode VN: invalid or missing program image, No such file or directory",1024
+3d0bb149,Temperature Over Limit on link card,972
+4cecb415,MidplaneSwitchController performing bit sparing on <*> bit <*>,964
+2a8305ff,"Node card VPD check: missing <*> node, VPD ecid <*> in processor card slot <*>",887
+ff52c40c,<*>,856
+0951b3fa,ciod:<*>OGIN chdir(/p/gb1/stella/RAPTOR/2183) failed: Input/output error,816
+e87321dc,Error: unable to mount filesystem,720
+9e01a672,"PrepareForService shutting down <*> <*> mCardSernum(<*><*><*><*><*><*>), <*> <*> <*> as part of Service Action <*>",715
+ae3fcc9e,rts: bad message header: cpu <*> invalid (softheader=<*> <*> <*> <*>) PSR0=<*> PSR1=<*> PRXF=<*> PIXF=<*>,619
+f22483f2,rts tree/torus link training failed: wanted:<*> got:<*>,605
+1f5adb7d,data <*> plb <*>,593
+b15df703,d-cache <*> parity <*>,588
+892a4ed1,r<*>=<*> r<*>=<*> r<*>=<*> r<*>=<*>,547
+eb299b60,CHECK_INITIAL_GLOBAL_INTERRUPT_VALUES,544
+cc5f7485,EndServiceAction is restarting the <*> in midplane <*> as part of Service Action <*>,537
+0fae9ddc,ciod: Error creating node map from file <*> <*> <*> <*> <*>,520
+89057316,"While initializing <*> card iDo machine with LP of <*> caught java.io.IOException: Could not contact iDo with <*> and <*> because java.lang.RuntimeException: Communication error: (DirectIDo for Uninitialized DirectIDo for <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = 0, Reply Sequence Number = -1, timedOut = true, retries = 200, timeout = 1000, Expected Op Command = 5, Actual Op Reply = -1, Expected Sync Command = 10, Actual Sync Reply = -1)",518
+088bafb1,ciod: duplicate canonical-rank 31 to logical-rank 0 mapping at line 3 of node map file /p/gb2/pakin1/sweep3d-5x5x400-10mk-3mmi-1024pes-sweep/sweep.map,512
+f9df8a24,ddr: activating redundant bit steering for next allocation: rank=<*> symbol=<*>,492
+ada81f37,ciod:<*>OGIN <*> failed: Permission denied,472
+645e3a9c,invalid <*>,408
+117f3d2b,ciod: for node <*> read continuation request but ioState is 0,395
+42479f60,Missing reverse cable: Cable <*> <*> F <*> --> <*> <*> C <*> is present BUT the reverse cable <*> <*> F <*> --> <*> <*> C <*> is missing,354
+68402bac,Link PGOOD error latched on link card,349
+49c3c8c1,ciod: Unexpected eof at line <*> of node map file <*>,328
+c0fe9fb6,LinkCard power module U58 is not accessible,319
+2d239257,job <*> timed out. Block freed.,306
+3d526018,ddr: Suppressing further CE interrupts,302
+2ade14bf,instruction plb error.............<*>,298
+86c84cbc,i-cache parity error..............<*>,296
+ad738237,tlb error.........................<*>,296
+8f4acfdd,imprecise machine check...........<*>,289
+f0bd9bfb,capture first <*> <*> error address..<*>,283
+a36d93b2,PrepareForService is being done on this Midplane <*> <*> <*> by <*>,249
+9857ec69,LinkCard is not fully functional,248
+a111fe6f,machine check status register: <*>,246
+0b5734c3,summary...........................<*>,244
+8cf1da60,rts: bad message header: index 0 greater than total 0 (softheader=<*> <*> <*> <*>) PSR0=<*> PSR1=<*> PRXF=<*> PIXF=<*>,238
+928b0f63,EndServiceAction <*> performed upon <*> by <*>,233
+cc62fa55,Bad cable going into LinkCard (<*><*><*><*><*><*>) Jtag <*> Port <*> - <*> bad wires,232
+f4d349ec,NodeCard power module <*> is not accessible,230
+4d8a4a02,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. The 1.5 volt rail is OK.,227
+33f20330,round toward <*>,204
+ab24ea9f,invalid operation exception <*>,204
+3e1bda63,"While initializing service card iDo with LP of <*> caught java.io.IOException: Could not contact iDo with <*> and <*> because java.lang.RuntimeException: Communication error: (DirectIDo for Uninitialized DirectIDo for <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = 0, Reply Sequence Number = -1, timedOut = true, retries = 200, timeout = 1000, Expected Op Command = 5, Actual Op Reply = -1, Expected Sync Command = 10, Actual Sync Reply = -1)",197
+c7406ca4,"ddr: Unable to steer rank=<*>, symbol=<*> - rank is already steering symbol <*> Due to multiple symbols being over the correctable error threshold, consider replacing the card",197
+34a47043,Power <*>,192
+243d8ef7,start <*>,192
+0add6a8d,monitor caught java.lang.IllegalStateException: while executing <*> Operation caught java.net.SocketException: Broken pipe and is stopping,190
+e0d805d0,memory manager <*> <*>,188
+3a95f59e,ciod: In packet from node <*> <*> message code 2 is not 3 or <*>95 (softheader=<*> <*> <*> <*>),176
+7d9b5a0a,"Node card status:<*>LERT 0, ALERT 1, ALERT 2, ALERT 3 is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The 2.5 volt rail is OK. The 1.5 volt rail is OK.",171
+dcee95b8,Missing reverse cable: Cable <*> 4 E (J13) --> <*> 4 D (J15) is present BUT the reverse cable <*> 1 E (J05) --> <*> 1 D (J07) is missing,168
+56d82ede,MailboxMonitor::serviceMailboxes() lib_ido_error: -1019 socket closed,168
+6cfc2ccd,MidplaneSwitchController::receiveTrain() iap <*> status=<*> <*>,166
+c2bbd325,"Problem communicating with service card, ido chip: <*>:<*>:<*>:<*>:<*>:<*>. java.io.IOException: Could not find EthernetSwitch on port:address <*>:136",166
+13b72099,prefetch depth for <*> <*>,144
+dede275d,<*> <*>,141
+cb5b50aa,parity error in read queue <*>,141
+b265915b,parity error in <*> <*>,141
+6add574a,uncorrectable error detected in <*> <*>,141
+5995c4af,plus <*>,136
+e663de76,minus <*>,136
+6f046d5d,fraction <*>,136
+68013d26,"PrepareForService is being done on this part <*> mCardSernum(<*><*><*><*><*><*>), <*> <*> <*> by <*>",131
+eab8a828,max=<*>,130
+490afbb2,DCR <*> : <*>,130
+6b31e08c,ciodb has been restarted.,129
+8281d2c7,<*> max=<*>,116
+a318d906,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. THE 2.5 VOLT RAIL IS NOT OK. THE 1.5 VOLT RAIL IS NOT OK.,116
+ec0f6c53,idoproxydb has been started: <*> $ Input parameters: -enableflush -loguserinfo db.properties BlueGene1,114
+a828f891,shutdown complete,99
+1bc8b844,L3 <*> control register: <*>,96
+8e3bdf35,number of correctable errors detected in L3 <*>,94
+3df233f0,uncorrectable error detected in EDRAM bank <*>,94
+05d14ace,memory manager <*>,94
+a6810873,interrupt threshold...<*>,94
+b34a3a1d,correctable error detected in directory <*>,94
+5a2c6163,memory manager <*> buffer <*>,94
+28c5ebea,correctable error detected in EDRAM bank <*>,94
+ba3b5e76,Power Good signal <*> A service action may be required.,94
+383c6cb8,Hardware monitor caught java.net.SocketException: Broken pipe and is stopping,77
+2c4d7668,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties <*> --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --shutdown-timeout <*>,72
+3fba9c93,Starting SystemController,71
+582df684,Running as background command,70
+1a3df0d1,Machine State Register: <*>,69
+fb225cd2,General Purpose Registers:,69
+40663199,Core Configuration Register <*>: <*>,69
+f602fef9,enable divide-by-zero exceptions.........<*>,68
+b2212966,enable invalid operation exceptions......<*>,68
+c81e07e2,minus denormalized number................<*>,68
+dda1b034,round nearest............................<*>,68
+4f30947a,Floating Point Registers:,68
+de1bc002,minus normalized number..................<*>,68
+61b90618,reserved.................................<*>,68
+8aba64af,invalid operation exception (int cnvt)...<*>,68
+05cb515f,plus normalized number...................<*>,68
+0315e48d,plus denormalized number.................<*>,68
+37e503e8,enable non-IEEE mode.....................<*>,68
+87ec1d73,enable inexact exceptions................<*>,68
+75eb2f83,divide-by-zero exception.................<*>,68
+38ce5534,inexact exception........................<*>,68
+6854ff1c,overflow exception.......................<*>,68
+880414ea,underflow exception......................<*>,68
+35df2e69,lr=<*> cr=<*> xer=<*> ctr=<*>,68
+d2d663fb,Floating Point Status and Control Register: <*>,68
+92e7abac,Special Purpose Registers:,68
+7cc667ee,exception summary........................<*>,68
+c0d9234e,enabled exception summary................<*>,68
+96a99a86,quiet NaN................................<*>,68
+2f97261e,dbcr<*>=<*> dbsr=<*> ccr<*>=<*>,68
+a38f9838,msr=<*> dear=<*> esr=<*> fpscr=<*>,68
+53b5af72,enable underflow exceptions..............<*>,68
+2925b8ba,enable overflow exceptions...............<*>,68
+8de374c6,"ciod: Error loading ../homme/build.Linux/preqx -n <*>: invalid or missing program image, No such file or directory",64
+aaa8d108,SerialNumber(<*><*><*><*><*><*>) <*> Status(A),64
+ce4ade78,<*> Message=Invalid JtagId = <*>,63
+1e85eb57,mmcs_db_server has been started: <*> --useDatabase BGL --dbproperties <*> --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all,63
+12c46e92,NodeCard is not fully functional,60
+689f3c12,machine check interrupt <*> <*> <*> error,60
+22d774b4,BGLMaster has been started: ./BGLMaster --consoleip 127.0.0.1 --consoleport 32035 --configfile bglmaster.init --autorestart y,59
+9e9164b0,"external input interrupt (unit=<*> bit=<*>): number of corrected SRAM errors has exceeded threshold, suppressing further interrupts of same type",57
+76c30a22,Machine Check Status Register: <*>,56
+89a0456f,EndServiceAction is restarting the <*> cards in Midplane <*> as part of Service Action <*>,51
+8796a276,Controlling BG/L rows [ 0 1 2 3 4 5 6 7 ],50
+cd5960c0,machine check interrupt (bit=<*>):<*>2 dcache unit data parity error,49
+74c1ba44,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. THE 2.5 VOLT RAIL IS NOT OK. THE 1.5 VOLT RAIL IS NOT OK.,49
+0791d345,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD is OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. The 1.5 volt rail is OK.,49
+c050ba70,size of scratchpad portion of L3.........<*> (0M),48
+2d40a57d,disable all access to cache directory....<*>,48
+30442b65,turn on hidden refreshes.................<*>,48
+f4c653a2,max number of outstanding prefetches.....<*>,48
+9d8bb75b,disable write lines <*>:4..................<*>,48
+859384d4,disable speculative access...............<*>,48
+0af83d09,close EDRAM pages as soon as possible....<*>,48
+d39f7ed9,write buffer commit threshold............<*>,48
+e84799b0,size of DDR we are caching...............<*> (512M),48
+460bff54,memory manager address parity error..............<*>,47
+b87b2484,L3 ecc status register: <*>,47
+fac52822,symbol................<*>,47
+0256fb0b,regctl scancom interface.........................<*>,47
+7785de1a,DDR failing address register: <*> <*>,47
+6318935a,disable flagging of DDR UE's as major internal error.0,47
+7c4ebdfa,memory manager refresh counter timeout...........<*>,47
+9e0ff38f,DDR failing data registers: <*> <*>,47
+2dd1b293,state machine....................................<*>,47
+d81b36a7,capture valid.........<*>,47
+58a54357,memory manager / command manager address parity..<*>,47
+80bac4a3,chip select...........<*>,47
+2bfcdc54,correctable error.....<*>,47
+d447db0e,qw trapped............<*>,47
+36921b9f,miscompare............<*>,47
+49a593e5,mask..................<*>,47
+c24de833,address parity error..<*>,47
+acc970d2,uncorrectable error...<*>,47
+856dcf68,command manager unit summary.....................<*>,47
+646a2086,memory and bus summary...........................<*>,47
+a7630d11,number of lines with parity errors written to L3 EDRAMs...<*>,47
+79913dac,DDR machine check register: <*> <*>,47
+d7623fbd,idoproxy communication failure: socket closed,41
+6ede2c6c,"ddr: excessive soft failures, consider replacing the card",41
+abcf3716,external input interrupt (unit=<*> bit=<*>): number of corrected SRAM errors has exceeded threshold,39
+0c15e3f5,ciod: for node <*> incomplete data written to core file <*>,38
+1c6b0b26,"Error getting detailed hw info for node, caught java.io.IOException: Problems with the chip, could not <*> <*> <*>",35
+4440fdd2,BGLMaster has been started: ./BGLMaster --consoleip 127.0.0.1 --consoleport 32035 --configfile bglmaster.init --autorestart y --db2profile /u/bgdb2cli/sqllib/db2profile --dbproperties db.properties,31
+ecb650b9,PrepareForService is being done on this rack <*> by <*>,30
+9e502d20,DDR failing info register:<*>DR Fail Info Register: <*>,29
+bc602e62,"rts: kernel terminated for reason 1002rts: bad message header: too many packets, type=<*>, cpu=<*>, index=<*>, <*> <*>",28
+176a1b3b,<*> correctable errors exceeds threshold (iar <*> lr <*>),26
+24371bc9,MidplaneSwitchController::sendTrain() port disconnected:<*>07-M1-L1-U19-E,24
+87ec27cc,ciod: Error creating node map from file my_map.txt: No such file or directory,24
+c1f92e3f,"ddr: Unable to steer rank=<*>, symbol=<*> - rank is already steering symbol <*> Due to multiple symbols being over the <*>",24
+1bc9bd20,machine check interrupt (bit=<*>):<*>2 dcache unit <*> <*> parity error,23
+48f86eb6,"error threshold, consider replacing the card",23
+74246be2,ciodb exited abnormally due to signal: Aborted,23
+f48d0e50,this link card is not fully functional,22
+4ccdacef,"ddr: Unable to steer rank=<*>, symbol=<*> - rank is already steering symbol <*> Due to multiple symbols being over the correctable e",22
+fe297487,"rror threshold, consider replacing the card",22
+5aa974ba,"Problem communicating with <*> <*> iDo machine with LP of <*> caught java.lang.IllegalStateException: while executing <*> Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version 13 and card type <*> is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*> Reply Sequence Number = -1, timedOut = true, retries = 200, timeout = 1000, Expected Op Command = 2, Actual Op Reply = -1, Expected Sync Command = <*> Actual Sync Reply = -1)",21
+d8399e7f,Controlling BG/L rows [ 0 1 2 3 ],20
+5827d3bf,DDR failing info register: <*>,18
+1f282241,kernel panic,18
+0768c287,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties db.properties --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --shutdown-timeout 120 --shutdown-timeout 240,18
+87ce4600,MailboxMonitor::serviceMailboxes() lib_ido_error: -1033 BGLERR_IDO_PKT_TIMEOUT connection lost to node/link/service card,14
+58c31a72,MidplaneSwitchController::parityAlignment() pap <*> status=<*> <*>,14
+57ba34dc,no ethernet link,14
+2cb01286,ax=<*>,13
+58fb776a,mmcs_server exited abnormally due to signal: Aborted,11
+c22d3d21,"Expected 10 active FanModules, but found 9 ( Found J300 J301 J302 J303 J304 <*> <*> <*> <*> ).",11
+259ee9a0,Torus non-recoverable error DCRs follow.,10
+89c713e5,external input interrupt (unit=<*> bit=<*>): uncorrectable torus error,10
+a7e126df,NodeCard VPD is corrupt,10
+f2da6bc5,"While initializing node card, ido with LP of <*> caught java.lang.IllegalStateException: while executing <*> Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version 13 and card type 4] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*> Reply Sequence Number = -1, timedOut = true, retries = 200, timeout = 1000, Expected Op Command = 2, Actual Op Reply = -1, Expected Sync Command = <*> Actual Sync Reply = -1)",10
+f59a8987,BglIdoChip table has <*> IDOs with the same IP address <*>,9
+c264eeff,"While initializing node card, ido with LP of <*> caught java.lang.IllegalStateException:<*>Do is not in functional state -- currently in state COMMUNICATION_ERROR",9
+af5fb8ee,mmcs_server exited normally with exit code <*>,9
+6bb8fb41,VALIDATE_LOAD_IMAGE_CRC_IN_DRAM,8
+0e15108f,While reading FanModule caught java.lang.IllegalStateException: while executing I2C Operation caught java.net.SocketException: Broken pipe,8
+7eceb839,While setting fan speed caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+06016ff1,While reading FanModule caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+3bd60ac4,While setting fan speed caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+6ad579db,While reading FanModule caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,8
+1351108b,While setting fan speed caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,7
+3c2474aa,While reading FanModule caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,7
+c763920f,"Problem communicating with service card, ido chip: <*>:<*>:<*>:<*>:<*>:<*>. java.lang.IllegalStateException:<*>Do is not in functional state -- currently in state COMMUNICATION_ERROR",6
+85aea8d2,No power module U58 found found on link card,6
+c8b212ee,BGLMaster has been started: ./BGLMaster --consoleip 127.0.0.1 --consoleport 32035 --configfile bglmaster.init,6
+dbf8e212,While setting fan speed caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,5
+6894da54,While reading FanModule caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,5
+4531fae3,machine state register: machine state register: machine state register: machine state register: machine state register: machine,5
+7db9f871,gister: machine state register: machine state register: machine state register: machine state register: machine state register:,5
+e5cc5e88,NodeCard temperature sensor chip <*> is not accessible,5
+5c0af16d,"PrepareForService is being done on this <*> mCardSernum(<*><*><*><*><*><*>), <*> <*> mType(4)) by root",5
+786e2f4a,"Error sending packet on tree network, packet at address <*> is not aligned",5
+40393eca,state register: machine state register: machine state register: machine state register: machine state register: machine state re,5
+8ef42a09,Exception Syndrome Register: <*>,4
+b59aa06c,"com.ibm.bgldevices.BulkPowerModule with VPD of com.ibm.bgldevices.BulkPowerModule$VpdReply:<*>BM Part Number: 53P5763, Vendor: Cherokee International, Vendor Serial Number: 4274124, Assembly Revision:  .A, Code Revision:<*>.1, Manufacture Date: during week 27 of 2004, Manufacture Location: Tustin, CA, USA is usable but not a supported version",4
+528fdcdf,power module status fault detected on node card. status registers are: <*>,4
+d3984518,"max time in a cr RAS KERNEL INFO <*> total interrupts. 0 critical input interrupts. 0 microseconds total spent on critical input interrupts, 0 microseconds max time in a critical input interrupt.",4
+3dde4566,instance of a correctable ddr. RAS KERNEL INFO 0 microseconds spent in the rbs signal handler during 0 calls. 0 microseconds was the maximum time for a single instance of a correctable ddr.,4
+e49c0c8a,EndServiceAction <*> was performed upon <*> by <*>,4
+95754021,"Target=ido://FF:F<*>:9F:<*>:E<*>:<*>:<*>:0D:<*>:E<*>:<*>:FB/JTAG/0 Message=JtagId All all zeros, power good may be low",4
+323161a1,Local PGOOD error latched on link card,4
+5c6b04c3,"Problem reading the ethernet arl entries fro the service card: java.lang.IllegalStateException: while executing I2C Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version 9 and card type 2] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*> Reply Sequence Number = <*> timedOut = true, retries = 200, timeout = 1000, Expected Op Command = 2, Actual Op Reply = <*> Expected Sync Command = 32, Actual Sync Reply = <*>",4
+448783a6,Hardware monitor caught java.lang.IllegalStateException: while executing I2C Operation caught java.net.SocketException: Broken pipe and is stopping,4
+837c00db,Node card status: no ALERTs are active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. Temperature Mask is not active. No temperature error. Temperature Limit Error Latch is clear. PGOOD IS NOT ASSERTED. PGOOD ERROR LATCH IS ACTIVE. MPGOOD IS NOT OK. MPGOOD ERROR LATCH IS ACTIVE. The 2.5 volt rail is OK. THE 1.5 VOLT RAIL IS NOT OK.,3
+b96151ec,mmcs_server exited abnormally due to signal: Segmentation fault,3
+7d596f8a,<*> Message=Pll failed to lock,3
+de284825,<*> Message=ScomError,3
+0509d32d,ciod: sendMsgToDebugger: error sending PROGRAM_EXITED message to debugger.,3
+a4ae766d,L3 major internal error,3
+6fecc16a,While reading FanModule caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,3
+ab8e8484,While setting fan speed caught java.lang.IllegalStateException: while executing I2C Operation caught java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.lang.IllegalStateException: client not in a usable state because java.net.SocketException: Broken pipe,3
+3d90c4f4,idoproxy communication failure:<*>GLERR_IDO_PKT_TIMEOUT connection lost to node/link/service card,2
+39a2bbcf,ciod: In packet from node <*> <*> message still ready for node <*> (softheader=<*> <*> <*> <*>),2
+e214b96e,MidplaneSwitchController::clearPort() bll_clear_port failed:<*>63-M0-L0-U19-A,2
+ba26ceca,"dear <*> <*> RAS KERNEL INFO Kernel detected <*> integer alignment exceptions <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*> <*> iar <*>, dear <*>",2
+0dedaecb,ciodb exited normally with exit code <*>,2
+b5baaf7c,machine check interrupt (bit=<*>): Torus/Tree/GI read error 0,2
+a8e5817b,Target=ido://FF:F<*>:9F:<*>:D<*>:<*>:<*>:0D:<*>:E<*>:2A:FE/JTAG/0 Message=Invalid JtagId = <*> Run environmental monitor to diagnose possible hardware failure.,2
+e50b0505,While inserting monitor info into DB caught java.lang.NullPointerException,2
+2a0a2381,idoproxydb hit ASSERT condition:<*>SSERT expression=!(nMsgLen > 0x10000) Source file=idomarshalerio.cpp Source line=<*> Function=int IdoMarshalerRecvBuffer::ReadBlock(IdoMsg::IdoMsgHdr*&),2
+203e5034,mmcs_db_server has been started: ./mmcs_db_server --useDatabase BGL --dbproperties serverdb.properties --iolog /bgl/BlueLight/logs/BGL --reconnect-blocks all --no-reconnect-blocks,2
+e5c1b0c2,monitor caught java.lang.UnsupportedOperationException: power module <*> not present and is stopping,2
+8bee262c,x=<*>,2
+41b17f5a,rts assertion failed: `personality->version == BGLPERSONALITY_VERSION' in `void start()' at start.cc:131,2
+9b1c1a39,"Problem communicating with service card, ido chip: <*>:<*>:<*>:<*>:<*>:<*>. java.lang.IllegalStateException: while executing CONTROL Operation caught java.lang.RuntimeException: Communication error: (DirectIDo for com.ibm.ido.DirectIDo object <*> with image version 9 and card type 2] is in state = COMMUNICATION_ERROR, sequenceNumberIsOk = false, ExpectedSequenceNumber = <*> Reply Sequence Number = <*> timedOut = true, retries = 200, timeout = 1000, Expected Op Command = 2, Actual Op Reply = <*> Expected Sync Command = 8, Actual Sync Reply = <*>",2
+1f0f70bf,pro,1
+473b9d7f,external input interrupt (unit=<*> bit=<*>): 1M tree receiver 2 in resynch mode,1
+93d7d8a9,instruction TLB error interrupt,1
+810c7f78,external input interrupt (unit=<*> bit=<*>): tree header with no target waiting,1
+c65ab653,"rts assertion failed: `vaddr % PAGE_SIZE_1M == 0' in `int initializeAppMemory(int, TLBEntry&, unsigned int, unsigned int)' at mmu.cc:540",1
+a9c449d4,program,1
+a34af4e3,MailboxMonitor::serviceMailboxes() lib_ido_error: -1114 unexpected socket error: Broken pipe,1
+672aa7bb,idoproxydb hit ASSERT condition:<*>SSERT expression=!(RecvMsgHdr.ulLen > 0x10000) Source file=idomarshalerio.cpp Source line=<*> Function=virtual int IdoMarshalerIo::RunRecv(),1
+62e78bca,parity error.......<*>,1
+e67d924b,machine state register:,1
+d728134f,Added 8 subnets and 409600 addresses to DB,1
+50deed5a,DeclareServiceNetworkCharacteristics has been run with the force option but the DB is not empty,1
+76b7594c,DeclareServiceNetworkCharacteristics has been run but the DB is not empty,1
+6020e667,idoproxy exited normally with exit code 0,1
+e60185c5,"ddr: redundant bit steering failed, sequencer timeout",1
+6a2de688,ddrSize == 256*1024*1024 || ddrSize == 512*1024*1024,1
+05588c1a,"Error getting detailed hw info for node, caught java.io.IOException: Problems with the chip, clear all resets",1
+afbe885b,"Node card status:<*>LERT 0, ALERT 1, ALERT 2, ALERT 3 is (are) active. Clock Mode is Low. Clock Select is Midplane. Phy JTAG Reset is asserted. ASIC JTAG Reset is not asserted. TEMPERATURE MASK IS ACTIVE. No temperature error. Temperature Limit Error Latch is clear. PGOOD is asserted. PGOOD error latch is clear. MPGOOD is OK. MPGOOD error latch is clear. The 2.5 volt rail is OK. The 1.5 volt rail is OK.",1
+b054e294,"e error threshold, consider replacing the card",1
+24866a12,NodeCard VPD chip is not accessible,1
+13ba2efb,"While initializing node card, ido with LP of FF:F<*>:9F:<*>:E<*>:<*>:<*>:0D:<*>:E<*>:<*>:79 caught java.lang.NullPointerException",1
+4c48a0b5,monitor caught java.lang.IllegalStateException: while executing CONTROL Operation caught java.io.EOFException and is stopping,1

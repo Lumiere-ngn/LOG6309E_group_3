@@ -1,0 +1,49 @@
+EventId,EventTemplate,Occurrences
+bbb51b95,Receiving block <*> src: /<*> dest: /<*>,1723232
+5d5de21c,BLOCK* NameSystem.addStoredBlock: blockMap updated: <*> is added to <*> size <*>,1719741
+d38aa58d,PacketResponder <*> for block <*> <*>,1706728
+46003790,Received block <*> of size <*> from /<*>,1706514
+dba996ef,Deleting block <*> file <*>,1402047
+d63ef163,BLOCK* NameSystem.delete: <*> is added to invalidSet of <*>,1396174
+3d91fa85,BLOCK* NameSystem.allocateBlock: <*> <*>,575061
+4dec0816,<*> Served block <*> to /<*>,428726
+a333d363,<*>:Got exception while serving <*> to /<*>:,356207
+32777b38,Verification succeeded for <*>,120036
+44614d71,Received block <*> src: /<*> dest: /<*> of size <*>,7097
+9c784e29,<*>:Transmitted block <*> to /<*>,6937
+728076ac,BLOCK* ask <*> to replicate <*> to datanode(s) <*>,6837
+40651754,<*> Starting thread to transfer block <*> to <*>,6837
+2e68ccc3,Unexpected error trying to delete block <*>. BlockInfo not found in volumeMap.,5545
+bcc910df,writeBlock <*> received exception java.io.IOException: Could not read from stream,3226
+0567184d,Receiving empty packet for block <*>,1464
+8f2bc724,BLOCK* NameSystem.addStoredBlock: addStoredBlock request received for <*> on <*> size <*> But it does not belong to any file.,1288
+c294d20f,BLOCK* NameSystem.addStoredBlock: Redundant addStoredBlock request received for <*> on <*> size <*>,975
+75627efd,"<*> Starting thread to transfer block <*> to <*>, <*>",165
+54e5f6b4,BLOCK* ask <*> to replicate <*> to datanode(s) <*> <*>,165
+d013b7a3,writeBlock <*> received exception java.io.IOException: Connection reset by peer,75
+69bca6e5,Exception in receiveBlock for block <*> java.io.IOException: Connection reset by peer,75
+ace40671,writeBlock <*> received exception <*>,67
+15b484af,Changing block file offset of block <*> from 0 to <*> meta file offset to <*>,65
+f266840a,Exception in receiveBlock for block <*> <*>,56
+f79898ae,PendingReplicationMonitor timed out block <*>,47
+9621139e,<*>:Exception writing block <*> to mirror <*>,34
+f7c33085,PacketResponder <*> <*> Exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=/<*> remote=/<*>]. <*> millis timeout left.,33
+a5478aff,PacketResponder <*> <*> Exception java.net.SocketTimeoutException: <*> millis timeout while waiting for channel to be ready for read. ch : java.nio.channels.SocketChannel[connected local=/<*> remote=/<*>],22
+e817fa45,PacketResponder <*> 2 Exception java.io.EOFException,19
+d62e5638,Exception in receiveBlock for block <*> java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=/<*> remote=/<*>]. <*> millis timeout left.,16
+124068c6,writeBlock <*> received exception java.io.IOException: <*> <*>,16
+20317105,writeBlock <*> received exception java.net.SocketTimeoutException: <*> millis timeout while waiting for channel to be ready for <*> ch : java.nio.channels.SocketChannel[connected local=/<*> remote=/<*>],15
+e024fa48,PacketResponder <*> <*> Exception java.io.IOException: Connection reset by peer,11
+78915d3a,PacketResponder <*> <*> Exception java.nio.channels.ClosedByInterruptException,10
+fcd37a6d,Adding an already existing block <*>,10
+1a718242,<*>:Failed to transfer <*> to <*> got java.io.IOException: Connection reset by peer,9
+4610d0f1,"writeBlock <*> received exception java.io.IOException: Block <*> is valid, and cannot be written to.",9
+1061e5d9,writeBlock <*> received exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[connected local=/<*> remote=/<*>]. <*> millis timeout left.,7
+2ecc047e,PacketResponder <*> <*> Exception java.io.IOException: Broken pipe,6
+25382c88,Exception in receiveBlock for block <*> java.net.SocketTimeoutException: <*> millis timeout while waiting for channel to be ready for write. ch : java.nio.channels.SocketChannel[connected local=/<*> remote=/<*>],5
+06d16156,Reopen Block <*>,5
+625a2a34,PacketResponder <*> 1 Exception java.io.InterruptedIOException: Interruped while waiting for IO on channel java.nio.channels.SocketChannel[closed]. <*> millis timeout left.,5
+13eb7010,BLOCK* Removing block <*> from neededReplications as it does not belong to any file.,4
+559305d8,Exception in receiveBlock for block <*> java.io.IOException: Broken pipe,3
+fcf2c482,PacketResponder <*> 1 Exception java.io.IOException: The stream is closed,2
+b65fc512,writeBlock <*> received exception java.net.NoRouteToHostException: No route to host,1
