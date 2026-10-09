@@ -1,7 +1,7 @@
 """Step 9: explain the Random Forest from resample 0 with SHAP TreeExplainer; each feature is one log template.
 
-Refits the RF of src/extension.py on resample 0 (same split, same seed, so the same model), explains up to 4,000 test
-sessions (all test anomalies, then normal sessions up to the cap), and writes the top 10 templates by mean |SHAP|
+Refits the RF of src/extension.py on resample 0 (same split, same seed, so the same model), explains a 4,000-session test sample
+(2,000 anomalous and 2,000 normal, drawn at random), and writes the top 10 templates by mean |SHAP|
 for the anomalous class with their text.
 
 Outputs in results/ext/: shap_top10.csv (EventId, template, mean |SHAP|, mean SHAP on anomalous and on normal
@@ -39,9 +39,13 @@ def main() -> None:
     rf = RandomForestClassifier(n_estimators=10, max_features="sqrt", random_state=SEED, n_jobs=-1)
     rf.fit(x_tr.to_numpy(dtype=np.float64), y_tr)
 
-    anom = np.flatnonzero(y_te == 1)
-    normal = np.random.default_rng(SEED).permutation(np.flatnonzero(y_te == 0))[: max(0, args.cap - len(anom))]
-    idx = np.concatenate([anom[: args.cap], normal])
+    # Half anomalous, half normal: the test split holds about 5,000 anomalies, so filling the cap with anomalies
+    # first left no normal session to compare against (first run, 2026-10-09).
+    rng = np.random.default_rng(SEED)
+    half = args.cap // 2
+    anom = rng.permutation(np.flatnonzero(y_te == 1))[:half]
+    normal = rng.permutation(np.flatnonzero(y_te == 0))[:half]
+    idx = np.concatenate([anom, normal])
     sample = x_te.iloc[idx]
     values = shap.TreeExplainer(rf).shap_values(sample.to_numpy(dtype=np.float64))
     # Recent shap returns (n, features, classes); older versions a list per class.

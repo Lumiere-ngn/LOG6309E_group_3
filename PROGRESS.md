@@ -103,6 +103,76 @@ Deviations from the plan:
      MLP is the same on CPU and GPU.
 - Five seeds instead of the paper's single run, so every number has a standard deviation.
 
+## Step 7. Extension runs (HDFS, four models), completed 2026-10-09
+
+- Code: `src/extension.py`, run as `cluster/ext.sbatch` on one H100 (job 63907609, 12 minutes for all 40 fits).
+- Data: HDFS MCV, all 48 features (the better condition in step 6). 10 stratified 70/30 resamples, seeds 0 to 9,
+  each with 402,542 training and 172,519 test sessions.
+- Models:
+  1. Random Forest and MLP, supervised, with the step 6 settings.
+  2. Isolation Forest (scikit-learn, 100 trees), fitted without labels on 90% of the training split.
+  3. Autoencoder (48-32-8-32-48, ReLU, log1p input, Adam at lr 1e-3, batch 4,096, 20 epochs), trained on the normal
+     sessions of that 90% only; the anomaly score is the mean squared reconstruction error.
+- Thresholds for the two unsupervised models: the 99th percentile of the scores of normal sessions in the remaining
+  10% of the training split. The test set never sets a threshold. AUC uses the raw scores.
+- Outputs: `results/ext/rq2_runs.csv` (40 rows), `results/ext/rq2_summary.csv`, `results/logs/step7_63907609.out`.
+
+Mean over 10 resamples (sd of F1 in brackets):
+
+| Model | Precision | Recall | F1 | AUC |
+|---|---|---|---|---|
+| Random Forest | 0.998 | 0.999 | 0.998 (0.000) | 1.000 |
+| MLP | 0.994 | 0.999 | 0.997 (0.003) | 1.000 |
+| Autoencoder | 0.824 | 0.964 | 0.885 (0.088) | 0.999 |
+| Isolation Forest | 0.757 | 0.611 | 0.676 (0.013) | 0.960 |
+
+- The autoencoder ranks sessions almost perfectly (AUC 0.999) but its F1 varies from 0.674 (seed 1) to 0.967
+  (seed 7), so its weakness is the threshold, not the score. Isolation Forest is stable but misses 39% of anomalies.
+
+## Step 8. Ranking, completed 2026-10-09
+
+- Code: `src/rank.py` with the non-parametric Scott-Knott ESD port in `analysis/` (from the ScottKnottESD R package:
+  models sorted by median; a block is one group when its extreme pair differs by a negligible Cliff's delta, below
+  0.147; otherwise it is cut where the Kruskal-Wallis H is largest). Group 1 is the best.
+- Outputs: `results/ext/rq2_ranking.csv`, `results/ext/rq2_f1.png`, `results/ext/rq2_auc.png`.
+
+| Model | F1 median | F1 group | AUC median | AUC group |
+|---|---|---|---|---|
+| Random Forest | 0.998 | 1 | 1.000 | 1 |
+| MLP | 0.997 | 2 | 1.000 | 1 |
+| Autoencoder | 0.907 | 3 | 1.000 | 2 |
+| Isolation Forest | 0.681 | 4 | 0.961 | 3 |
+
+- On F1 every model forms its own group. On AUC the two supervised models tie. Testing every pair instead of the
+  extreme pair (the package documentation's rule) gives the same groups.
+- As the plan predicted, the ranking separates supervised from unsupervised models more than it separates the models
+  within each pair.
+
+## Step 9. Explanation, completed 2026-10-09
+
+- Code: `src/explain.py`. It refits the resample-0 Random Forest (same split and seed as step 7) and runs SHAP
+  TreeExplainer (shap 0.52.0) on 4,000 test sessions, 2,000 anomalous and 2,000 normal, drawn at random.
+- Outputs: `results/ext/shap_top10.csv` (event, template, mean |SHAP|, mean SHAP on anomalous and on normal
+  sessions) and `results/ext/shap_summary.png`.
+
+Top 5 templates by mean |SHAP| for the anomalous class:
+
+| Event | Template | Mean SHAP, anomalous | Mean SHAP, normal |
+|---|---|---|---|
+| 2e68ccc3 | Unexpected error trying to delete block <*>. BlockInfo not found in volumeMap. | 0.273 | -0.008 |
+| 46003790 | Received block <*> of size <*> from /<*> | 0.134 | -0.004 |
+| bbb51b95 | Receiving block <*> src: /<*> dest: /<*> | 0.123 | -0.003 |
+| 5d5de21c | BLOCK* NameSystem.addStoredBlock: blockMap updated: <*> is added to <*> size <*> | 0.120 | -0.004 |
+| dba996ef | Deleting block <*> file <*> | 0.055 | 0.011 |
+
+- The model uses two kinds of evidence. Error templates push toward "anomalous" when they appear (high
+  counts, red points at positive SHAP for 2e68ccc3, c294d20f "Redundant addStoredBlock" and 0567184d "Receiving empty
+  packet"). The normal write path pushes toward "anomalous" when it is incomplete: low counts of "Received block"
+  (46003790) and "PacketResponder" (d38aa58d) carry positive SHAP. HDFS writes each block to three replicas by default, so
+  fewer than three receipts suggests a replica never arrived (an interpretation from HDFS defaults, not measured here).
+- The first run of this step filled the 4,000-session sample with anomalies, because the test split
+  holds about 5,000, which left no normal sessions to compare against. The reported run uses the balanced sample above.
+
 ## Reproduce
 
 ```bash
@@ -111,6 +181,8 @@ bash cluster/fetch_loghub.sh /scratch/$USER/log6309e
 bash cluster/setup_env.sh /scratch/$USER/log6309e
 cd /scratch/$USER/log6309e
 sbatch --export=ALL,REQUIRE_GPU=0 cluster/steps_3_6.sbatch   # parse, MCV, validate (its replicate run can be cancelled)
-sbatch cluster/rq1_cpu_array.sbatch                           # seeds 0-4, about 1 h each
+sbatch cluster/rq1_cpu_array.sbatch                           # step 6, seeds 0-4, about 1 h each
+sbatch cluster/ext.sbatch                                     # step 7 on GPU, about 12 min
+python src/rank.py && python src/explain.py                   # steps 8 and 9, minutes
 python src/replicate.py --merge results_cpu/seed_*/rq1_runs.csv --out results
 ```

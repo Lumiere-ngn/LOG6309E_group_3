@@ -1,0 +1,131 @@
+job 63907609 on fc10602 at 2026-10-09T23:06:05Z
+torch 2.7.1 on NVIDIA H100 80GB HBM3, matmul sum 1073741824
+2026-10-09 16:06:41,728 extension HDFS: 575061 sessions, 48 features, 16838 anomalous; device cuda
+2026-10-09 16:06:42,867 extension seed 0 RF: P 0.997 R 0.999 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:06:52,066 replicate   MLP step 0 loss 0.6997
+2026-10-09 16:07:07,782 replicate   MLP step 500 loss 0.0044
+2026-10-09 16:07:23,500 replicate   MLP step 1000 loss 0.0012
+2026-10-09 16:07:39,220 replicate   MLP step 1500 loss 0.0007
+2026-10-09 16:07:55,098 extension seed 0 MLP: P 0.996 R 0.999 F1 0.998 AUC 1.000 (72s)
+2026-10-09 16:07:55,842 extension seed 0 IForest: P 0.756 R 0.577 F1 0.654 AUC 0.950 (1s)
+2026-10-09 16:07:57,503 extension   AE epoch 0 loss 0.02446
+2026-10-09 16:07:57,883 extension   AE epoch 5 loss 0.00182
+2026-10-09 16:07:58,262 extension   AE epoch 10 loss 0.00005
+2026-10-09 16:07:58,642 extension   AE epoch 15 loss 0.00001
+2026-10-09 16:07:59,052 extension seed 0 AE: P 0.748 R 1.000 F1 0.856 AUC 1.000 (3s)
+2026-10-09 16:08:00,162 extension seed 1 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:08:00,721 replicate   MLP step 0 loss 0.7164
+2026-10-09 16:08:16,439 replicate   MLP step 500 loss 0.0015
+2026-10-09 16:08:32,158 replicate   MLP step 1000 loss 0.0011
+2026-10-09 16:08:47,877 replicate   MLP step 1500 loss 0.0008
+2026-10-09 16:09:03,621 extension seed 1 MLP: P 0.996 R 0.998 F1 0.997 AUC 1.000 (63s)
+2026-10-09 16:09:04,318 extension seed 1 IForest: P 0.757 R 0.635 F1 0.691 AUC 0.966 (1s)
+2026-10-09 16:09:04,593 extension   AE epoch 0 loss 0.02779
+2026-10-09 16:09:04,971 extension   AE epoch 5 loss 0.00166
+2026-10-09 16:09:05,349 extension   AE epoch 10 loss 0.00087
+2026-10-09 16:09:05,728 extension   AE epoch 15 loss 0.00071
+2026-10-09 16:09:06,137 extension seed 1 AE: P 0.716 R 0.637 F1 0.674 AUC 0.994 (2s)
+2026-10-09 16:09:07,195 extension seed 2 RF: P 0.998 R 0.999 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:09:07,750 replicate   MLP step 0 loss 0.7390
+2026-10-09 16:09:23,470 replicate   MLP step 500 loss 0.0019
+2026-10-09 16:09:39,189 replicate   MLP step 1000 loss 0.0012
+2026-10-09 16:09:54,907 replicate   MLP step 1500 loss 0.0006
+2026-10-09 16:10:10,647 extension seed 2 MLP: P 0.997 R 0.999 F1 0.998 AUC 1.000 (63s)
+2026-10-09 16:10:11,332 extension seed 2 IForest: P 0.748 R 0.585 F1 0.657 AUC 0.962 (1s)
+2026-10-09 16:10:11,600 extension   AE epoch 0 loss 0.02645
+2026-10-09 16:10:11,983 extension   AE epoch 5 loss 0.00314
+2026-10-09 16:10:12,365 extension   AE epoch 10 loss 0.00044
+2026-10-09 16:10:12,748 extension   AE epoch 15 loss 0.00002
+2026-10-09 16:10:13,150 extension seed 2 AE: P 0.879 R 1.000 F1 0.936 AUC 1.000 (2s)
+2026-10-09 16:10:14,222 extension seed 3 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:10:14,739 replicate   MLP step 0 loss 0.6954
+2026-10-09 16:10:30,457 replicate   MLP step 500 loss 0.0018
+2026-10-09 16:10:46,177 replicate   MLP step 1000 loss 0.0014
+2026-10-09 16:11:01,898 replicate   MLP step 1500 loss 0.0010
+2026-10-09 16:11:17,634 extension seed 3 MLP: P 0.994 R 0.998 F1 0.996 AUC 1.000 (63s)
+2026-10-09 16:11:18,336 extension seed 3 IForest: P 0.753 R 0.626 F1 0.684 AUC 0.958 (1s)
+2026-10-09 16:11:18,600 extension   AE epoch 0 loss 0.02429
+2026-10-09 16:11:18,962 extension   AE epoch 5 loss 0.00103
+2026-10-09 16:11:19,342 extension   AE epoch 10 loss 0.00010
+2026-10-09 16:11:19,724 extension   AE epoch 15 loss 0.00004
+2026-10-09 16:11:20,125 extension seed 3 AE: P 0.730 R 1.000 F1 0.844 AUC 1.000 (2s)
+2026-10-09 16:11:21,204 extension seed 4 RF: P 0.998 R 0.999 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:11:21,709 replicate   MLP step 0 loss 0.6929
+2026-10-09 16:11:37,427 replicate   MLP step 500 loss 0.0022
+2026-10-09 16:11:53,147 replicate   MLP step 1000 loss 0.0016
+2026-10-09 16:12:08,866 replicate   MLP step 1500 loss 0.0012
+2026-10-09 16:12:24,598 extension seed 4 MLP: P 0.996 R 1.000 F1 0.998 AUC 1.000 (63s)
+2026-10-09 16:12:25,277 extension seed 4 IForest: P 0.757 R 0.613 F1 0.677 AUC 0.962 (1s)
+2026-10-09 16:12:25,546 extension   AE epoch 0 loss 0.02245
+2026-10-09 16:12:25,924 extension   AE epoch 5 loss 0.00170
+2026-10-09 16:12:26,302 extension   AE epoch 10 loss 0.00069
+2026-10-09 16:12:26,679 extension   AE epoch 15 loss 0.00004
+2026-10-09 16:12:27,077 extension seed 4 AE: P 0.888 R 1.000 F1 0.941 AUC 1.000 (2s)
+2026-10-09 16:12:28,105 extension seed 5 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:12:28,609 replicate   MLP step 0 loss 0.8083
+2026-10-09 16:12:44,327 replicate   MLP step 500 loss 0.0016
+2026-10-09 16:13:00,046 replicate   MLP step 1000 loss 0.0008
+2026-10-09 16:13:15,765 replicate   MLP step 1500 loss 0.0005
+2026-10-09 16:13:31,501 extension seed 5 MLP: P 0.996 R 0.999 F1 0.997 AUC 1.000 (63s)
+2026-10-09 16:13:32,175 extension seed 5 IForest: P 0.754 R 0.624 F1 0.683 AUC 0.965 (1s)
+2026-10-09 16:13:32,445 extension   AE epoch 0 loss 0.03262
+2026-10-09 16:13:32,825 extension   AE epoch 5 loss 0.00241
+2026-10-09 16:13:33,205 extension   AE epoch 10 loss 0.00030
+2026-10-09 16:13:33,587 extension   AE epoch 15 loss 0.00002
+2026-10-09 16:13:33,987 extension seed 5 AE: P 0.873 R 1.000 F1 0.932 AUC 1.000 (2s)
+2026-10-09 16:13:35,054 extension seed 6 RF: P 0.998 R 0.998 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:13:35,563 replicate   MLP step 0 loss 0.6970
+2026-10-09 16:13:51,280 replicate   MLP step 500 loss 0.0020
+2026-10-09 16:14:06,997 replicate   MLP step 1000 loss 0.0012
+2026-10-09 16:14:22,713 replicate   MLP step 1500 loss 0.0007
+2026-10-09 16:14:44,280 extension seed 6 MLP: P 0.996 R 0.999 F1 0.998 AUC 1.000 (69s)
+2026-10-09 16:14:45,185 extension seed 6 IForest: P 0.754 R 0.592 F1 0.663 AUC 0.951 (1s)
+2026-10-09 16:14:46,919 extension   AE epoch 0 loss 0.06801
+2026-10-09 16:14:47,298 extension   AE epoch 5 loss 0.00234
+2026-10-09 16:14:47,675 extension   AE epoch 10 loss 0.00062
+2026-10-09 16:14:48,052 extension   AE epoch 15 loss 0.00002
+2026-10-09 16:14:48,469 extension seed 6 AE: P 0.787 R 1.000 F1 0.881 AUC 1.000 (3s)
+2026-10-09 16:14:49,624 extension seed 7 RF: P 0.998 R 0.999 F1 0.999 AUC 1.000 (0s)
+2026-10-09 16:14:50,153 replicate   MLP step 0 loss 0.6968
+2026-10-09 16:15:05,870 replicate   MLP step 500 loss 0.0019
+2026-10-09 16:15:21,588 replicate   MLP step 1000 loss 0.0013
+2026-10-09 16:15:37,307 replicate   MLP step 1500 loss 0.0008
+2026-10-09 16:15:53,042 extension seed 7 MLP: P 0.995 R 0.999 F1 0.997 AUC 1.000 (63s)
+2026-10-09 16:15:53,725 extension seed 7 IForest: P 0.766 R 0.611 F1 0.680 AUC 0.962 (1s)
+2026-10-09 16:15:53,962 extension   AE epoch 0 loss 0.02447
+2026-10-09 16:15:54,339 extension   AE epoch 5 loss 0.00250
+2026-10-09 16:15:54,715 extension   AE epoch 10 loss 0.00002
+2026-10-09 16:15:55,091 extension   AE epoch 15 loss 0.00001
+2026-10-09 16:15:55,473 extension seed 7 AE: P 0.936 R 1.000 F1 0.967 AUC 1.000 (2s)
+2026-10-09 16:15:56,554 extension seed 8 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:15:57,070 replicate   MLP step 0 loss 0.7446
+2026-10-09 16:16:12,788 replicate   MLP step 500 loss 0.0044
+2026-10-09 16:16:28,507 replicate   MLP step 1000 loss 0.0014
+2026-10-09 16:16:44,225 replicate   MLP step 1500 loss 0.0008
+2026-10-09 16:16:59,960 extension seed 8 MLP: P 0.995 R 1.000 F1 0.997 AUC 1.000 (63s)
+2026-10-09 16:17:00,629 extension seed 8 IForest: P 0.766 R 0.629 F1 0.691 AUC 0.960 (1s)
+2026-10-09 16:17:00,864 extension   AE epoch 0 loss 0.04011
+2026-10-09 16:17:01,211 extension   AE epoch 5 loss 0.00194
+2026-10-09 16:17:01,558 extension   AE epoch 10 loss 0.00063
+2026-10-09 16:17:01,905 extension   AE epoch 15 loss 0.00003
+2026-10-09 16:17:02,261 extension seed 8 AE: P 0.934 R 1.000 F1 0.966 AUC 1.000 (2s)
+2026-10-09 16:17:03,276 extension seed 9 RF: P 0.997 R 0.999 F1 0.998 AUC 1.000 (0s)
+2026-10-09 16:17:03,815 replicate   MLP step 0 loss 0.6944
+2026-10-09 16:17:19,534 replicate   MLP step 500 loss 0.0022
+2026-10-09 16:17:35,250 replicate   MLP step 1000 loss 0.0016
+2026-10-09 16:17:50,966 replicate   MLP step 1500 loss 0.0011
+2026-10-09 16:18:06,703 extension seed 9 MLP: P 0.978 R 1.000 F1 0.989 AUC 1.000 (63s)
+2026-10-09 16:18:07,383 extension seed 9 IForest: P 0.756 R 0.622 F1 0.683 AUC 0.959 (1s)
+2026-10-09 16:18:07,628 extension   AE epoch 0 loss 0.02582
+2026-10-09 16:18:08,007 extension   AE epoch 5 loss 0.00341
+2026-10-09 16:18:08,385 extension   AE epoch 10 loss 0.00158
+2026-10-09 16:18:08,763 extension   AE epoch 15 loss 0.00068
+2026-10-09 16:18:09,149 extension seed 9 AE: P 0.745 R 1.000 F1 0.854 AUC 0.998 (2s)
+2026-10-09 16:18:09,496 extension 
+         precision_mean  precision_std  recall_mean  recall_std  f1_mean  f1_std  auc_mean  auc_std
+model                                                                                              
+AE                0.824          0.087        0.964       0.115    0.885   0.088     0.999    0.002
+IForest           0.757          0.006        0.611       0.020    0.676   0.013     0.960    0.005
+MLP               0.994          0.006        0.999       0.001    0.997   0.003     1.000    0.000
+RF                0.998          0.000        0.999       0.000    0.998   0.000     1.000    0.000
+done at 2026-10-09T23:18:16Z
