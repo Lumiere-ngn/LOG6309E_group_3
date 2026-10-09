@@ -19,5 +19,8 @@ echo "array $SLURM_ARRAY_JOB_ID task $SEED on $(hostname) at $(date -u +%FT%TZ)"
 for ds in HDFS BGL; do
   test -f "data/features/$ds/mcv.parquet" || { echo "missing data/features/$ds/mcv.parquet"; exit 2; }
 done
-python src/replicate.py --seeds "$SEED" --out "results_cpu/seed_$SEED"
+# DATASETS (joined with "+") and OUTDIR let one dataset be rerun alone, e.g. BGL after a windowing change.
+DATASETS=${DATASETS:-HDFS+BGL}
+OUTDIR=${OUTDIR:-results_cpu}
+python src/replicate.py --seeds "$SEED" --datasets ${DATASETS//+/ } --out "$OUTDIR/seed_$SEED"
 echo "done at $(date -u +%FT%TZ)"
