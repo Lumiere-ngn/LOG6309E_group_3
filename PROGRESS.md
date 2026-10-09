@@ -94,9 +94,13 @@ Findings for the report:
 
 Deviations from the plan:
 
-- The MLP ran on CPU. On Fir's H100 nodes, torch reported no usable GPU with either the 2.14.1 build (CUDA 13.2)
-  or the 2.7.1 build (CUDA 12.6), with and without the `cuda` modules (`tests/cuda_ok.py`, `tests/cuda_diag.py`).
-  One HDFS MLP takes 1,739 s on 16 cores, so each seed is its own array task.
+- The MLP ran on CPU. One HDFS MLP takes 1,739 s on 16 cores, so each seed is its own array task. Two causes kept
+  the GPU unused, both since resolved (`tests/cuda_ok.py`, `tests/cuda_diag.py`):
+  1. The default environment's torch 2.14.1 targets CUDA 13.2, and the GPU nodes' driver 580 supports CUDA 13.0.
+     `cluster/setup_env_gpu.sh` builds `.venv-gpu` with torch 2.7.1 (CUDA 12.6), which the job script now uses.
+  2. Node fc10612 shows no GPU to torch in any configuration (job 63873126), while torch 2.7.1 works on fc10616
+     (job 63829776). The GPU scripts now exclude fc10612. These results are unchanged by either fix, since the
+     MLP is the same on CPU and GPU.
 - Five seeds instead of the paper's single run, so every number has a standard deviation.
 
 ## Reproduce

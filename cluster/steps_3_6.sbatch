@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=64G
 #SBATCH --time=03:00:00
-#SBATCH --exclude=fc10512
+#SBATCH --exclude=fc10512,fc10612
 #SBATCH --output=/scratch/marwan/log6309e/logs/steps3_6_%j.out
 # Steps 3 to 6 of Marwan-plan.md: Drain parse, MCV, collinearity, RF/MLP replication.
 # Submit from /scratch (not /home): cd /scratch/marwan/log6309e && sbatch cluster/steps_3_6.sbatch
@@ -17,7 +17,8 @@ SEEDS=${SEEDS:-0+1+2+3+4}
 OUT=${OUT:-results}
 cd "$ROOT"
 module load StdEnv/2023 python/3.12 arrow
-# VENV=.venv-gpu holds torch 2.7.1 (CUDA 12.6, cluster/setup_env_gpu.sh); .venv's 2.14.1 targets CUDA 13.2.
+# VENV=.venv-gpu holds torch 2.7.1 (CUDA 12.6, cluster/setup_env_gpu.sh). .venv's 2.14.1 targets CUDA 13.2, which the
+# nodes' driver 580 (CUDA 13.0) cannot run. Node fc10612 shows no GPU to torch at all (job 63873126); fc10616 works.
 VENV=${VENV:-.venv-gpu}
 source "$VENV/bin/activate"
 echo "job $SLURM_JOB_ID on $(hostname) at $(date -u +%FT%TZ); SEEDS=$SEEDS; OUT=$OUT; VENV=$VENV"
