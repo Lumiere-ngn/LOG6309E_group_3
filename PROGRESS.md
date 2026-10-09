@@ -179,6 +179,7 @@ Top 5 templates by mean |SHAP| for the anomalous class:
 # on a Fir login node
 bash cluster/fetch_loghub.sh /scratch/$USER/log6309e
 bash cluster/setup_env.sh /scratch/$USER/log6309e
+bash cluster/setup_env_gpu.sh /scratch/$USER/log6309e     # torch 2.7.1 for the GPU jobs (step 7)
 cd /scratch/$USER/log6309e
 sbatch --export=ALL,REQUIRE_GPU=0 cluster/steps_3_6.sbatch   # parse, MCV, validate (its replicate run can be cancelled)
 sbatch cluster/rq1_cpu_array.sbatch                           # step 6, seeds 0-4, about 1 h each
