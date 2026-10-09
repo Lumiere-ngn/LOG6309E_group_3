@@ -6,3 +6,6 @@ scipy
 statsmodels
 drain3
 tqdm
+torch
+matplotlib
+shap
