@@ -10,22 +10,35 @@
 # Steps 3 to 6 of Marwan-plan.md: Drain parse, MCV, collinearity, RF/MLP replication.
 # Submit from /scratch (not /home): cd /scratch/marwan/log6309e && sbatch cluster/steps_3_6.sbatch
 # SEEDS overrides the seed list, joined with "+" because sbatch --export splits on commas.
+# OUT is the results folder (default results). REQUIRE_GPU=0 lets the MLP run on CPU.
 set -euo pipefail
 ROOT=/scratch/marwan/log6309e
 SEEDS=${SEEDS:-0+1+2+3+4}
+OUT=${OUT:-results}
 cd "$ROOT"
-module load StdEnv/2023 python/3.12 cuda/12.6 arrow
-source .venv/bin/activate
-echo "job $SLURM_JOB_ID on $(hostname) at $(date -u +%FT%TZ); SEEDS=$SEEDS; git $(git rev-parse --short HEAD 2>/dev/null || echo none)"
-nvidia-smi --query-gpu=name,memory.total --format=csv,noheader
+module load StdEnv/2023 python/3.12 arrow
+# VENV=.venv-gpu holds torch 2.7.1 (CUDA 12.6, cluster/setup_env_gpu.sh); .venv's 2.14.1 targets CUDA 13.2.
+VENV=${VENV:-.venv-gpu}
+source "$VENV/bin/activate"
+echo "job $SLURM_JOB_ID on $(hostname) at $(date -u +%FT%TZ); SEEDS=$SEEDS; OUT=$OUT; VENV=$VENV"
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
+if [ "${REQUIRE_GPU:-1}" = 1 ]; then
+  if ! python tests/cuda_ok.py; then
+    echo "retrying with cuda/12.6 loaded"
+    module load cuda/12.6
+    python tests/cuda_ok.py || { echo "torch sees no GPU; stopping before any run"; exit 3; }
+  fi
+fi
 
 for ds in HDFS BGL; do
   if [ ! -f "data/parsed/$ds/$ds.log_structured.parquet" ]; then
     python src/parse_drain.py "$ds"
   fi
-  python src/build_mcv.py "$ds"
+  if [ ! -f "data/features/$ds/mcv.parquet" ]; then
+    python src/build_mcv.py "$ds"
+  fi
 done
 python src/validate_parse.py
-python src/replicate.py --seeds ${SEEDS//+/ }
-pip freeze > results/pip_freeze.txt
+python src/replicate.py --seeds ${SEEDS//+/ } --out "$OUT"
+pip freeze > "$OUT/pip_freeze.txt"
 echo "done at $(date -u +%FT%TZ)"

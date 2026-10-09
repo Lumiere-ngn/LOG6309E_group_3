@@ -1,0 +1,43 @@
+array 63829881 task 3 on fc30562 at 2026-10-09T15:57:53Z
+2026-10-09 08:58:28,818 replicate python 3.12.4, numpy 2.5.3, pandas 3.0.5, sklearn 1.8.0, torch 2.14.1, threads 16, device cpu
+2026-10-09 08:58:29,092 replicate HDFS: 575061 sessions, 48 features, 16838 anomalous
+2026-10-09 08:59:12,523 replicate HDFS seed 3 reduction: {'n_input': 48, 'removed_constant': 1, 'removed_correlated': 16, 'removed_vif': 3, 'n_kept': 28}
+2026-10-09 08:59:12,898 replicate HDFS RF all seed 3: P 0.997 R 0.998 F1 0.998 AUC 1.000 (0s)
+2026-10-09 08:59:21,864 replicate   MLP step 0 loss 0.6953
+2026-10-09 09:05:21,572 replicate   MLP step 500 loss 0.0018
+2026-10-09 09:11:31,153 replicate   MLP step 1000 loss 0.0014
+2026-10-09 09:17:37,117 replicate   MLP step 1500 loss 0.0010
+/scratch/marwan/log6309e/src/replicate.py:99: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /tmp/build_wheels_tmp.103000/python-3.12/torch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  prob = torch.softmax(net(torch.from_numpy(x_te).float().to(DEVICE)), dim=1)[:, 1].cpu().numpy()
+2026-10-09 09:23:46,567 replicate HDFS MLP all seed 3: P 0.994 R 0.998 F1 0.996 AUC 1.000 (1474s)
+2026-10-09 09:23:46,959 replicate HDFS RF reduced seed 3: P 0.993 R 0.998 F1 0.996 AUC 1.000 (0s)
+2026-10-09 09:23:48,025 replicate   MLP step 0 loss 0.7138
+2026-10-09 09:30:01,598 replicate   MLP step 500 loss 0.0042
+2026-10-09 09:36:19,557 replicate   MLP step 1000 loss 0.0038
+2026-10-09 09:42:36,734 replicate   MLP step 1500 loss 0.0037
+2026-10-09 09:48:49,647 replicate HDFS MLP reduced seed 3: P 0.978 R 0.998 F1 0.988 AUC 1.000 (1503s)
+2026-10-09 09:48:49,676 replicate BGL: 826 sessions, 379 features, 409 anomalous
+2026-10-09 10:04:53,045 replicate BGL seed 3 reduction: {'n_input': 379, 'removed_constant': 12, 'removed_correlated': 216, 'removed_vif': 30, 'n_kept': 121}
+2026-10-09 10:04:53,148 replicate BGL RF all seed 3: P 0.986 R 0.829 F1 0.901 AUC 0.987 (0s)
+2026-10-09 10:04:53,251 replicate   MLP step 0 loss 0.6492
+2026-10-09 10:04:53,950 replicate   MLP step 500 loss 0.0729
+2026-10-09 10:04:54,634 replicate   MLP step 1000 loss 0.0777
+2026-10-09 10:04:55,316 replicate   MLP step 1500 loss 0.0728
+2026-10-09 10:04:56,000 replicate BGL MLP all seed 3: P 0.822 R 0.902 F1 0.860 AUC 0.929 (3s)
+2026-10-09 10:04:56,049 replicate BGL RF reduced seed 3: P 0.959 R 0.866 F1 0.910 AUC 0.983 (0s)
+2026-10-09 10:04:56,057 replicate   MLP step 0 loss 0.6455
+2026-10-09 10:04:56,647 replicate   MLP step 500 loss 0.1245
+2026-10-09 10:04:57,228 replicate   MLP step 1000 loss 0.0748
+2026-10-09 10:04:57,814 replicate   MLP step 1500 loss 0.0707
+2026-10-09 10:04:58,401 replicate BGL MLP reduced seed 3: P 0.864 R 0.927 F1 0.894 AUC 0.964 (2s)
+2026-10-09 10:04:58,453 replicate 
+dataset model features  n_features_mean  n_features_std  precision_mean  precision_std  recall_mean  recall_std  f1_mean  f1_std  auc_mean  auc_std  paper_precision  paper_recall  paper_f1                                          paper_note  n_seeds
+    BGL   MLP      all            379.0             NaN           0.822            NaN        0.902         NaN    0.860     NaN     0.929      NaN            0.958         0.840     0.895                                                            1
+    BGL   MLP  reduced            121.0             NaN           0.864            NaN        0.927         NaN    0.894     NaN     0.964      NaN            0.958         0.840     0.895                                                            1
+    BGL    RF      all            379.0             NaN           0.986            NaN        0.829         NaN    0.901     NaN     0.987      NaN            0.830         0.963     0.891 paper RF P and R likely swapped (metrics arg order)        1
+    BGL    RF  reduced            121.0             NaN           0.959            NaN        0.866         NaN    0.910     NaN     0.983      NaN            0.830         0.963     0.891 paper RF P and R likely swapped (metrics arg order)        1
+   HDFS   MLP      all             48.0             NaN           0.994            NaN        0.998         NaN    0.996     NaN     1.000      NaN            0.999         0.999     0.999                                                            1
+   HDFS   MLP  reduced             28.0             NaN           0.978            NaN        0.998         NaN    0.988     NaN     1.000      NaN            0.999         0.999     0.999                                                            1
+   HDFS    RF      all             48.0             NaN           0.997            NaN        0.998         NaN    0.998     NaN     1.000      NaN            0.998         1.000     0.999 paper RF P and R likely swapped (metrics arg order)        1
+   HDFS    RF  reduced             28.0             NaN           0.993            NaN        0.998         NaN    0.996     NaN     1.000      NaN            0.998         1.000     0.999 paper RF P and R likely swapped (metrics arg order)        1
+done at 2026-10-09T17:04:59Z

@@ -1,0 +1,3 @@
+dataset,seed,n_input,removed_constant,removed_correlated,removed_vif,n_kept,seconds
+HDFS,1,48,2,15,3,28,49.8
+BGL,1,379,19,207,29,124,1346.6

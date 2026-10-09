@@ -1,0 +1,48 @@
+job 63821173 on fc10616 at 2026-10-09T15:09:50Z; SEEDS=0+1+2+3+4; git 4c304f5
+NVIDIA H100 80GB HBM3, 81559 MiB
+HDFS: 1,000,000 lines, 36 templates, 9s
+HDFS: 2,000,000 lines, 40 templates, 18s
+HDFS: 3,000,000 lines, 42 templates, 27s
+HDFS: 4,000,000 lines, 42 templates, 37s
+HDFS: 5,000,000 lines, 44 templates, 45s
+HDFS: 6,000,000 lines, 44 templates, 55s
+HDFS: 7,000,000 lines, 45 templates, 64s
+HDFS: 8,000,000 lines, 46 templates, 74s
+HDFS: 9,000,000 lines, 48 templates, 83s
+HDFS: 10,000,000 lines, 48 templates, 93s
+HDFS: 11,000,000 lines, 48 templates, 101s
+HDFS: done, 11,175,629 lines, 48 Drain clusters -> 48 events, 123s -> /scratch/marwan/log6309e/data/parsed/HDFS
+2026-10-09 08:12:55,254 build_mcv HDFS: 575061 sessions, 16838 anomalous (2.93%), 48 event columns -> /scratch/marwan/log6309e/data/features/HDFS
+BGL: 1,000,000 lines, 165 templates, 13s
+BGL: 2,000,000 lines, 489 templates, 25s
+BGL: 3,000,000 lines, 1134 templates, 39s
+BGL: 4,000,000 lines, 1188 templates, 57s
+BGL: done, 4,747,963 lines, 3548 Drain clusters -> 379 events, 81s -> /scratch/marwan/log6309e/data/parsed/BGL
+2026-10-09 08:14:19,298 build_mcv BGL: 826 sessions, 409 anomalous (49.52%), 379 event columns -> /scratch/marwan/log6309e/data/features/BGL
+blocks: 575,061 in traces, 575,061 in our parse, 575,061 aligned, 0 with a different length
+events: 48 ours, 29 ground truth
+Grouping Accuracy: 0.8457 (9,451,218 of 11,175,629 line-block pairs)
+
+Ground-truth events split across several of our events:
+  E7: 8 events, e.g. writeBlock <*> received exception java.io.InterruptedIOException: Interruped while waiting
+  E10: 8 events, e.g. PacketResponder <*> <*> Exception java.io.IOException: Broken pipe
+  E14: 5 events, e.g. Exception in receiveBlock for block <*> java.net.SocketTimeoutException: <*> millis timeou
+  E18: 2 events, e.g. <*> Starting thread to transfer block <*> to <*>
+  E25: 2 events, e.g. BLOCK* ask <*> to replicate <*> to datanode(s) <*> <*>
+Our events merging several ground-truth events: 1
+  d38aa58d -> ['E11', 'E8']: PacketResponder <*> for block <*> <*>
+2026-10-09 08:15:23,556 replicate python 3.12.4, numpy 2.5.3, pandas 3.0.5, sklearn 1.8.0, torch 2.14.1, threads 16, device cpu
+2026-10-09 08:15:23,650 replicate HDFS: 575061 sessions, 48 features, 16838 anomalous
+2026-10-09 08:16:19,334 replicate HDFS seed 0 reduction: {'n_input': 48, 'removed_constant': 1, 'removed_correlated': 17, 'removed_vif': 3, 'n_kept': 27}
+2026-10-09 08:16:19,929 replicate HDFS RF all seed 0: P 0.997 R 0.999 F1 0.998 AUC 1.000 (1s)
+2026-10-09 08:16:29,790 replicate   MLP step 0 loss 0.6997
+2026-10-09 08:23:43,549 replicate   MLP step 500 loss 0.0044
+2026-10-09 08:30:58,432 replicate   MLP step 1000 loss 0.0012
+2026-10-09 08:38:12,971 replicate   MLP step 1500 loss 0.0007
+/scratch/marwan/log6309e/src/replicate.py:99: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /tmp/build_wheels_tmp.103000/python-3.12/torch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  prob = torch.softmax(net(torch.from_numpy(x_te).float().to(DEVICE)), dim=1)[:, 1].cpu().numpy()
+2026-10-09 08:45:19,136 replicate HDFS MLP all seed 0: P 0.996 R 0.999 F1 0.998 AUC 1.000 (1739s)
+2026-10-09 08:45:19,905 replicate HDFS RF reduced seed 0: P 0.995 R 0.998 F1 0.996 AUC 1.000 (1s)
+2026-10-09 08:45:21,815 replicate   MLP step 0 loss 0.6969
+2026-10-09 08:52:42,212 replicate   MLP step 500 loss 0.0051
+[2026-10-09T08:57:35.254] error: *** JOB 63821173 ON fc10616 CANCELLED AT 2026-10-09T08:57:35 DUE to SIGNAL Terminated ***

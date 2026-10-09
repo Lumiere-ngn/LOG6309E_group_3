@@ -131,8 +131,12 @@ def run(datasets: list[str], models: list[str], seeds: list[int], out: Path) -> 
                              ds, name, cond, seed, p, r, f1, row["auc"], row["seconds"])
                     pd.DataFrame(rows).to_csv(out / "rq1_runs.csv", index=False)  # checkpoint every run
 
-    runs = pd.DataFrame(rows)
     pd.DataFrame(reductions).to_csv(out / "rq1_reduction.csv", index=False)
+    summarize(pd.DataFrame(rows), out)
+
+
+def summarize(runs: pd.DataFrame, out: Path) -> pd.DataFrame:
+    """Mean and sd over seeds per dataset, model and feature set, beside the paper's values."""
     summary = runs.groupby(["dataset", "model", "features"])[["n_features", "precision", "recall", "f1", "auc"]] \
         .agg(["mean", "std"]).round(3)
     summary.columns = ["_".join(c) for c in summary.columns]
@@ -140,8 +144,10 @@ def run(datasets: list[str], models: list[str], seeds: list[int], out: Path) -> 
     for i, metric in enumerate(["precision", "recall", "f1"]):
         summary[f"paper_{metric}"] = [PAPER[(d, m)][i] for d, m in zip(summary["dataset"], summary["model"])]
     summary["paper_note"] = np.where(summary["model"] == "RF", "paper RF P and R likely swapped (metrics arg order)", "")
+    summary["n_seeds"] = runs.groupby(["dataset", "model", "features"])["seed"].nunique().to_numpy()
     summary.to_csv(out / "rq1_summary.csv", index=False)
     log.info("\n%s", summary.to_string(index=False))
+    return summary
 
 
 def main() -> None:
@@ -150,9 +156,19 @@ def main() -> None:
     ap.add_argument("--models", nargs="+", default=["RF", "MLP"], choices=list(MODELS))
     ap.add_argument("--seeds", nargs="+", type=int, default=[0, 1, 2, 3, 4])
     ap.add_argument("--out", type=Path, default=ROOT / "results")
+    ap.add_argument("--merge", nargs="+", type=Path,
+                    help="only merge these rq1_runs.csv files (one per array task) into --out")
     args = ap.parse_args()
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s %(message)s")
     args.out.mkdir(parents=True, exist_ok=True)
+    if args.merge:
+        runs = pd.concat([pd.read_csv(p) for p in args.merge], ignore_index=True)
+        dup = runs.duplicated(["dataset", "model", "features", "seed"])
+        if dup.any():
+            raise SystemExit(f"{int(dup.sum())} duplicate (dataset, model, features, seed) rows across {args.merge}")
+        runs.to_csv(args.out / "rq1_runs.csv", index=False)
+        summarize(runs, args.out)
+        return
     log.info("python %s, numpy %s, pandas %s, sklearn %s, torch %s, threads %d, device %s", platform.python_version(),
              np.__version__, pd.__version__, sklearn.__version__, torch.__version__, torch.get_num_threads(), DEVICE)
     run(args.datasets, args.models, args.seeds, args.out)
