@@ -86,7 +86,7 @@ Findings for the report:
    `metrics(y_test, y_)`. Our BGL RF precision (0.958) and recall (0.808) sit beside the paper's published recall
    (0.963) and precision (0.830).
 3. Our BGL MLP F1 is 0.081 below the paper. `MLP.py` prints test-set F1 every 10 steps and keeps no validation set,
-   so the published value may be the best of those printouts. This is inferred, since the code shows the printing
+   so the published value may be the best of those printouts. This is inferred, since the code shows the printing,
    not which value was reported.
 4. Removing correlated and redundant features does not help these models; on BGL it costs 0.06 to 0.07 F1.
 5. Under the clock windowing (826 sessions), BGL RF reaches F1 0.919 and MLP 0.821
