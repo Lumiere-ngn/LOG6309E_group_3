@@ -1,0 +1,25 @@
+array 63845262 task 2 on fc30562 at 2026-10-09T17:35:32Z
+2026-10-09 10:35:40,060 replicate python 3.12.4, numpy 2.5.3, pandas 3.0.5, sklearn 1.8.0, torch 2.14.1, threads 16, device cpu
+2026-10-09 10:35:40,109 replicate BGL: 719 sessions, 379 features, 384 anomalous
+2026-10-09 10:51:04,249 replicate BGL seed 2 reduction: {'n_input': 379, 'removed_constant': 10, 'removed_correlated': 218, 'removed_vif': 31, 'n_kept': 120}
+2026-10-09 10:51:04,363 replicate BGL RF all seed 2: P 0.946 R 0.909 F1 0.927 AUC 0.979 (0s)
+2026-10-09 10:51:07,765 replicate   MLP step 0 loss 0.6910
+2026-10-09 10:51:08,434 replicate   MLP step 500 loss 0.0566
+2026-10-09 10:51:08,988 replicate   MLP step 1000 loss 0.0576
+2026-10-09 10:51:09,542 replicate   MLP step 1500 loss 0.1514
+/scratch/marwan/log6309e/src/replicate.py:99: UserWarning: The given NumPy array is not writable, and PyTorch does not support non-writable tensors. This means writing to this tensor will result in undefined behavior. You may want to copy the array to protect its data or make it writable before converting it to a tensor. This type of warning will be suppressed for the rest of this program. (Triggered internally at /tmp/build_wheels_tmp.103000/python-3.12/torch/torch/csrc/utils/tensor_numpy.cpp:213.)
+  prob = torch.softmax(net(torch.from_numpy(x_te).float().to(DEVICE)), dim=1)[:, 1].cpu().numpy()
+2026-10-09 10:51:10,103 replicate BGL MLP all seed 2: P 0.795 R 0.857 F1 0.825 AUC 0.890 (6s)
+2026-10-09 10:51:10,155 replicate BGL RF reduced seed 2: P 0.898 R 0.688 F1 0.779 AUC 0.849 (0s)
+2026-10-09 10:51:10,170 replicate   MLP step 0 loss 0.7219
+2026-10-09 10:51:10,635 replicate   MLP step 500 loss 0.0838
+2026-10-09 10:51:11,099 replicate   MLP step 1000 loss 0.1392
+2026-10-09 10:51:11,565 replicate   MLP step 1500 loss 0.0906
+2026-10-09 10:51:12,034 replicate BGL MLP reduced seed 2: P 0.812 R 0.675 F1 0.738 AUC 0.829 (2s)
+2026-10-09 10:51:12,064 replicate 
+dataset model features  n_features_mean  n_features_std  precision_mean  precision_std  recall_mean  recall_std  f1_mean  f1_std  auc_mean  auc_std  paper_precision  paper_recall  paper_f1                                          paper_note  n_seeds
+    BGL   MLP      all            379.0             NaN           0.795            NaN        0.857         NaN    0.825     NaN     0.890      NaN            0.958         0.840     0.895                                                            1
+    BGL   MLP  reduced            120.0             NaN           0.812            NaN        0.675         NaN    0.738     NaN     0.829      NaN            0.958         0.840     0.895                                                            1
+    BGL    RF      all            379.0             NaN           0.946            NaN        0.909         NaN    0.927     NaN     0.979      NaN            0.830         0.963     0.891 paper RF P and R likely swapped (metrics arg order)        1
+    BGL    RF  reduced            120.0             NaN           0.898            NaN        0.688         NaN    0.779     NaN     0.849      NaN            0.830         0.963     0.891 paper RF P and R likely swapped (metrics arg order)        1
+done at 2026-10-09T17:51:13Z

@@ -1,0 +1,5 @@
+dataset,model,features,n_features_mean,n_features_std,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,auc_mean,auc_std,paper_precision,paper_recall,paper_f1,paper_note,n_seeds
+BGL,MLP,all,379.0,,0.842,,0.831,,0.837,,0.908,,0.958,0.84,0.895,,1
+BGL,MLP,reduced,121.0,,0.829,,0.753,,0.789,,0.844,,0.958,0.84,0.895,,1
+BGL,RF,all,379.0,,0.943,,0.857,,0.898,,0.968,,0.83,0.963,0.891,paper RF P and R likely swapped (metrics arg order),1
+BGL,RF,reduced,121.0,,0.985,,0.844,,0.909,,0.966,,0.83,0.963,0.891,paper RF P and R likely swapped (metrics arg order),1
