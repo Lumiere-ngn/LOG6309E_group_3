@@ -1,0 +1,112 @@
+# Progress
+
+One section per completed step of `Marwan-plan.md`. Each section lists what was run, where the outputs are,
+the numbers, and every deviation from the plan or the paper. Paper: Wu, Li and Khomh, "On the Effectiveness of Log
+Representation for Log-based Anomaly Detection", EMSE 2023 (arXiv 2308.08736v3), with code at
+github.com/mooselab/suppmaterial-LogRepForAnomalyDetection, referred to below as the paper's code.
+
+Branch: `feat/steps-4-6-features-replication`. Compute: Alliance cluster Fir, CPU nodes (16 cores, 48 GB per task).
+
+## Step 3. Parse (Drain), completed 2026-10-05, rerun on Fir 2026-10-09
+
+- Code: `src/parse_drain.py` (drain3, depth 4, similarity threshold 0.5). HDFS masks block IDs and IP:port; BGL uses
+  the refined regexes from the README of the paper's code package.
+- Data: Loghub HDFS_v1 and BGL from Zenodo record 8196385, fetched by `cluster/fetch_loghub.sh`.
+- Run time on Fir: HDFS 11,175,629 lines in about 100 s, 48 events; BGL 4,747,963 lines in 81 s, 3,548 Drain clusters
+  merged into 379 events.
+- Check: `src/validate_parse.py` aligns the HDFS parse with Loghub's `Event_traces.csv`. All 575,061 blocks align.
+  Grouping accuracy is 0.846 (9,451,218 of 11,175,629 line-block pairs); the loss comes from one of our events
+  merging ground-truth events E8 and E11.
+
+## Step 4. Group and count (MCV), completed 2026-10-09
+
+- Code: `src/build_mcv.py {HDFS,BGL}`, output `data/features/<DATASET>/mcv.parquet` (one row per session, one count
+  column per event, plus `label`).
+- HDFS: one session per block ID; labels from `anomaly_label.csv`. 575,061 sessions, 16,838 anomalous (2.93%),
+  48 event columns.
+- BGL: 6-hour windows, each opened at a log line and closed 6 hours later; the next line opens the next window. A
+  window is anomalous if any line in it carries an alert label. 719 sessions, 384 anomalous (53.4%), 379 event
+  columns. The paper reports 718 sessions averaging 6,565 lines (Table 1, Section 4.3.2); this rule gives 719
+  averaging 6,604.
+- Deviation found and fixed: windows anchored on the clock (first timestamp plus multiples of 6 h) give 826
+  sessions, because stretches with no logs still split busy periods. `tests/bgl_window_count.py` compares the rules.
+  `--window-mode clock` keeps the old rule; its results are in `results/bgl_clock_windows/`.
+
+## Step 5. Collinearity, completed 2026-10-09
+
+- Code: `src/collinearity.py`, fitted on each seed's training split only. It drops constant columns,
+  clusters features on Spearman correlation (average linkage on 1 - |rho|, cut at |rho| = 0.7) and keeps the
+  highest-variance feature per cluster, then drops the feature with the largest VIF until every VIF is at most 5.
+- Check: `tests/smoke_test.py` asserts both directions on synthetic data. A duplicated column, a scaled column and a
+  constant are removed, and four independent columns are kept.
+- Features removed per pass, over seeds 0 to 4 (`results/rq1_reduction.csv`):
+
+| Dataset | Input | Constant | Correlated | VIF > 5 | Kept |
+|---|---|---|---|---|---|
+| HDFS | 48 | 1 to 2 | 14 to 17 | 3 to 5 | 27 to 29 |
+| BGL | 379 | 7 to 19 | 209 to 220 | 30 to 34 | 118 to 123 |
+
+- The BGL VIF pass takes 14 to 25 minutes per seed.
+
+## Step 6. Replication runs, completed 2026-10-09
+
+- Code: `src/replicate.py`, run as a 5-task CPU array (`cluster/rq1_cpu_array.sbatch`, one task per seed 0 to 4).
+  `src/merge_results.py` combines the per-seed outputs.
+- Splits: stratified, seeded; HDFS 70/30 (402,542 train, 172,519 test, the paper's exact sizes), BGL 80/20 (575 train,
+  144 test; paper 575 and 143).
+- Models, as in the paper's code: Random Forest with 10 trees and `max_features="sqrt"` (`models/traditional.py`);
+  MLP with two sigmoid hidden layers of 200 units, Adam at lr 0.01, 2,000 full-batch steps, anomalous training rows
+  repeated `int(n / n_anomalous) - 1` extra times (`models/MLP.py`). The final MLP is evaluated; no checkpoint is
+  chosen on the test set.
+- Outputs: `results/rq1_runs.csv` (40 runs), `results/rq1_summary.csv` (mean and sd over 5 seeds beside the paper),
+  `results/logs/` (job logs).
+
+Mean over 5 seeds, all features (sd of F1 in brackets):
+
+| Dataset, model | Precision | Recall | F1 | AUC | Paper P / R / F1 |
+|---|---|---|---|---|---|
+| HDFS, RF | 0.998 | 0.998 | 0.998 (0.000) | 1.000 | 0.998 / 1.000 / 0.999 |
+| HDFS, MLP | 0.996 | 0.999 | 0.997 (0.001) | 1.000 | 0.999 / 0.999 / 0.999 |
+| BGL, RF | 0.958 | 0.808 | 0.873 (0.062) | 0.965 | 0.830 / 0.963 / 0.891 |
+| BGL, MLP | 0.840 | 0.792 | 0.814 (0.026) | 0.892 | 0.958 / 0.840 / 0.895 |
+
+With collinear features removed (step 5), F1 drops in every case:
+
+| Dataset, model | F1 all features | F1 reduced | Features kept (mean) |
+|---|---|---|---|
+| HDFS, RF | 0.998 | 0.996 | 28.0 of 48 |
+| HDFS, MLP | 0.997 | 0.987 | 28.0 of 48 |
+| BGL, RF | 0.873 | 0.810 | 120.6 of 379 |
+| BGL, MLP | 0.814 | 0.740 | 120.6 of 379 |
+
+Findings for the report:
+
+1. HDFS matches the paper within 0.002 F1.
+2. The paper's RF precision and recall are swapped. `traditional.py` defines `metrics(y_pred, y_true)` and calls
+   `metrics(y_test, y_)`. Our BGL RF precision (0.958) and recall (0.808) sit beside the paper's published recall
+   (0.963) and precision (0.830).
+3. Our BGL MLP F1 is 0.081 below the paper. `MLP.py` prints test-set F1 every 10 steps and keeps no validation set,
+   so the published value may be the best of those printouts. This is inferred, since the code shows the printing
+   not which value was reported.
+4. Removing correlated and redundant features does not help these models; on BGL it costs 0.06 to 0.07 F1.
+5. Under the clock windowing (826 sessions), BGL RF reaches F1 0.919 and MLP 0.821
+   (`results/bgl_clock_windows/rq1_summary.csv`), so the windowing choice moves BGL RF by 0.046 F1.
+
+Deviations from the plan:
+
+- The MLP ran on CPU. On Fir's H100 nodes, torch reported no usable GPU with either the 2.14.1 build (CUDA 13.2)
+  or the 2.7.1 build (CUDA 12.6), with and without the `cuda` modules (`tests/cuda_ok.py`, `tests/cuda_diag.py`).
+  One HDFS MLP takes 1,739 s on 16 cores, so each seed is its own array task.
+- Five seeds instead of the paper's single run, so every number has a standard deviation.
+
+## Reproduce
+
+```bash
+# on a Fir login node
+bash cluster/fetch_loghub.sh /scratch/$USER/log6309e
+bash cluster/setup_env.sh /scratch/$USER/log6309e
+cd /scratch/$USER/log6309e
+sbatch --export=ALL,REQUIRE_GPU=0 cluster/steps_3_6.sbatch   # parse, MCV, validate (its replicate run can be cancelled)
+sbatch cluster/rq1_cpu_array.sbatch                           # seeds 0-4, about 1 h each
+python src/replicate.py --merge results_cpu/seed_*/rq1_runs.csv --out results
+```
