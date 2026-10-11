@@ -12,7 +12,7 @@ The report is IEEE format, 6 to 8 pages, on the Moodle template (Introduction, A
 | 1. Parsing (15%) | Drain, once per dataset | The paper used Drain. HDFS has 11.2M lines and BGL 4.7M. |
 | 2. Representation (15%) | Message Count Vector (MCV) for every model | MCV ranks first overall in the paper (Table 6) and needs no embedding model. |
 | 3. Supervised models (20%) | Random Forest (classical) and MLP (deep learning) | The paper classes MLP as deep learning (Sec 4.3.1) and pairs MCV with it. |
-| 3a. Collinearity step | Spearman hierarchical clustering, then VIF | The paper does neither, so its numbers are our "without" condition. |
+| 3a. Collinearity step (not a handout item, ungraded) | Spearman hierarchical clustering, then VIF | Out of scope: the paper does neither and the handout does not ask for it. Already run (PROGRESS.md step 5); the report gives it one sentence at most. |
 | Metrics | Precision, recall, F1, AUC | The paper reports no AUC, so the AUC column has no paper value to compare against. |
 | Extension dataset | HDFS | It has 575k sessions with 2.9% anomalies, which suits unsupervised models and leaves large test sets across 10 resamples. |
 | Ext. 1 (20%): classical, unsupervised | Isolation Forest (scikit-learn) on MCV, fitted on the training split without labels | It is the model loglizer wraps, available directly in scikit-learn. |
