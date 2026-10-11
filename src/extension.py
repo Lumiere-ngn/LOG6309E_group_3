@@ -9,7 +9,7 @@ Models:
 
 Thresholds for the two unsupervised models come from a held-out slice of the TRAINING split (10%, stratified),
 never from the test set: the 99th percentile of the scores of the slice's normal sessions. AUC uses the raw score.
-Features: all 48 MCV columns, the better condition in RQ1 (results/rq1_summary.csv).
+Features: all 48 MCV columns, as in RQ1.
 
 Output: <out>/rq2_runs.csv, one row per model and resample (precision, recall, F1, AUC, threshold, seconds).
 Usage: python src/extension.py [--seeds 0 1 ... 9] [--limit N] [--out results/ext]

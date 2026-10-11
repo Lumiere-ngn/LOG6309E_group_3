@@ -12,7 +12,6 @@ The report is IEEE format, 6 to 8 pages, on the Moodle template (Introduction, A
 | 1. Parsing (15%) | Drain, once per dataset | The paper used Drain. HDFS has 11.2M lines and BGL 4.7M. |
 | 2. Representation (15%) | Message Count Vector (MCV) for every model | MCV ranks first overall in the paper (Table 6) and needs no embedding model. |
 | 3. Supervised models (20%) | Random Forest (classical) and MLP (deep learning) | The paper classes MLP as deep learning (Sec 4.3.1) and pairs MCV with it. |
-| 3a. Collinearity step (not a handout item, ungraded) | Spearman hierarchical clustering, then VIF | Out of scope: the paper does neither and the handout does not ask for it. Already run (PROGRESS.md step 5); the report gives it one sentence at most. |
 | Metrics | Precision, recall, F1, AUC | The paper reports no AUC, so the AUC column has no paper value to compare against. |
 | Extension dataset | HDFS | It has 575k sessions with 2.9% anomalies, which suits unsupervised models and leaves large test sets across 10 resamples. |
 | Ext. 1 (20%): classical, unsupervised | Isolation Forest (scikit-learn) on MCV, fitted on the training split without labels | It is the model loglizer wraps, available directly in scikit-learn. |
@@ -38,7 +37,7 @@ The paper's setup (Table 1, Sec 4.3.2):
 
 ## Steps
 
-1. **Environment (0.5 h).** Python 3.12 with uv: `uv pip install numpy pandas scikit-learn scipy statsmodels shap torch drain3`.
+1. **Environment (0.5 h).** Python 3.12 with uv: `uv pip install numpy pandas scikit-learn scipy shap torch drain3`.
 2. **Data (0.5 h).** Download from Loghub (github.com/logpai/loghub).
    - HDFS_v1.zip contains `anomaly_label.csv` (block labels) and `preprocessed/Event_traces.csv`. Use the traces only to cross-check our parse.
    - BGL.zip: the label is the first column of each line ("-" means normal).
@@ -50,12 +49,7 @@ The paper's setup (Table 1, Sec 4.3.2):
    - HDFS: group lines by block ID (regex `blk_-?\d+`); labels from `anomaly_label.csv`.
    - BGL: 6-hour windows; a window is anomalous if any line in it is.
    - Build the MCV matrix, one column per template.
-5. **Collinearity (1 h).**
-   - Drop constant columns.
-   - Cluster features on Spearman correlation (`scipy.cluster.hierarchy`), cut at |rho| = 0.7, keep one feature per cluster.
-   - Drop features with VIF > 5 (`statsmodels variance_inflation_factor`) one at a time until none remains.
-   - Report how many features each step removed.
-6. **Replication runs (2 h).** RF and MLP (two hidden layers of 200 units, as in the paper's `models/MLP.py`) on each dataset, with and without step 5: 2 datasets x 2 models x 2 conditions = 8 runs. Report P, R, F1 and AUC beside the paper's numbers.
+6. **Replication runs (2 h).** RF and MLP (two hidden layers of 200 units, as in the paper's `models/MLP.py`) on each dataset: 2 datasets x 2 models, over 5 seeds. Report P, R, F1 and AUC beside the paper's numbers.
 7. **Extension runs (3 h), HDFS only.**
    - Draw 10 stratified 70/30 resamples with seeds 0 to 9.
    - Fit all four models on each resample.
@@ -64,7 +58,7 @@ The paper's setup (Table 1, Sec 4.3.2):
    - Save F1 and AUC per model per resample.
 8. **Rank (0.5 h).** Run `sk_esd.py` on the 4 x 10 F1 matrix and on the AUC matrix; one box plot per metric.
 9. **Explain (1 h).** Run SHAP TreeExplainer on the RF from resample 0. Produce a summary plot of the top 10 templates, list their text, and write one paragraph on why they mark an anomalous block.
-10. **Report (6 h, shared).** Results are organized as RQ1 (replication: both datasets, with and without collinearity removal) and RQ2 (ranking of the four models). Close with the explanation of the best model and three take-home messages.
+10. **Report (6 h, shared).** Results are organized as RQ1 (replication on both datasets) and RQ2 (ranking of the four models). Close with the explanation of the best model and three take-home messages.
 
 Total: about 18 hours of hands-on work, about 6 per person. HDFS parsing and the 40 extension fits run unattended.
 
@@ -73,7 +67,7 @@ Total: about 18 hours of hands-on work, about 6 per person. HDFS parsing and the
 | Person | Owns | Report sections |
 |---|---|---|
 | A | Steps 3 to 6 on HDFS | Approach (data, parsing, features) |
-| B | Steps 3 to 6 on BGL, plus the shared collinearity code | Results RQ1, comparison with the paper |
+| B | Steps 3 to 6 on BGL | Results RQ1, comparison with the paper |
 | C | Steps 7 to 9 | Results RQ2, explanation, Conclusion |
 
 All three write the Introduction, Team Contribution and the slides.
@@ -82,8 +76,7 @@ All three write the Introduction, Team Contribution and the slides.
 
 1. On HDFS with MCV the paper's F1 is 0.999, so the replication should match it closely, and the ranking will separate supervised from unsupervised models more than it separates the models within each pair.
 2. BGL has 143 test windows, so one misclassified window moves F1 by about 0.01 to 0.02. A small gap from the paper is expected.
-3. HDFS has about 46 templates, so the VIF step may remove few features and change little. That result is reported as a finding.
-4. Do not reuse the paper's CNN and LSTM scripts as they are: they keep the epoch with the best test F1 (`CNN.py:254-261`, `LSTM.py:227-236`).
+3. Do not reuse the paper's CNN and LSTM scripts as they are: they keep the epoch with the best test F1 (`CNN.py:254-261`, `LSTM.py:227-236`).
 
 ## Sources
 

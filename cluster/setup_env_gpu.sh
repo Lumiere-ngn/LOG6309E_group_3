@@ -9,6 +9,6 @@ module load StdEnv/2023 python/3.12 arrow
 python -m venv "$ROOT/.venv-gpu"
 source "$ROOT/.venv-gpu/bin/activate"
 pip install -q --upgrade pip
-pip install -q --no-index numpy pandas scikit-learn scipy statsmodels tqdm "torch==$TORCH"
+pip install -q --no-index numpy pandas scikit-learn scipy tqdm "torch==$TORCH"
 pip install -q drain3
 python -c "import torch, sklearn; print('env ok', torch.__version__, 'CUDA', torch.version.cuda, 'sklearn', sklearn.__version__)"

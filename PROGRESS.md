@@ -28,40 +28,21 @@ Branch: `feat/steps-4-6-features-replication`. Compute: Alliance cluster Fir, CP
   window is anomalous if any line in it carries an alert label. 719 sessions, 384 anomalous (53.4%), 379 event
   columns. The paper reports 718 sessions averaging 6,565 lines (Table 1, Section 4.3.2); this rule gives 719
   averaging 6,604.
-- Deviation found and fixed: windows anchored on the clock (first timestamp plus multiples of 6 h) give 826
-  sessions, because stretches with no logs still split busy periods. `tests/bgl_window_count.py` compares the rules.
-  `--window-mode clock` keeps the old rule; its results are in `results/bgl_clock_windows/`.
-
-## Step 5. Collinearity, completed 2026-10-09
-
-- Code: `src/collinearity.py`, fitted on each seed's training split only. It drops constant columns,
-  clusters features on Spearman correlation (average linkage on 1 - |rho|, cut at |rho| = 0.7) and keeps the
-  highest-variance feature per cluster, then drops the feature with the largest VIF until every VIF is at most 5.
-- Check: `tests/smoke_test.py` asserts both directions on synthetic data. A duplicated column, a scaled column and a
-  constant are removed, and four independent columns are kept.
-- Features removed per pass, over seeds 0 to 4 (`results/rq1_reduction.csv`):
-
-| Dataset | Input | Constant | Correlated | VIF > 5 | Kept |
-|---|---|---|---|---|---|
-| HDFS | 48 | 1 to 2 | 14 to 17 | 3 to 5 | 27 to 29 |
-| BGL | 379 | 7 to 19 | 209 to 220 | 30 to 34 | 118 to 123 |
-
-- The BGL VIF pass takes 14 to 25 minutes per seed.
 
 ## Step 6. Replication runs, completed 2026-10-09
 
 - Code: `src/replicate.py`, run as a 5-task CPU array (`cluster/rq1_cpu_array.sbatch`, one task per seed 0 to 4).
-  `src/merge_results.py` combines the per-seed outputs.
+  `python src/replicate.py --merge` combines the per-seed outputs.
 - Splits: stratified, seeded; HDFS 70/30 (402,542 train, 172,519 test, the paper's exact sizes), BGL 80/20 (575 train,
   144 test; paper 575 and 143).
 - Models, as in the paper's code: Random Forest with 10 trees and `max_features="sqrt"` (`models/traditional.py`);
   MLP with two sigmoid hidden layers of 200 units, Adam at lr 0.01, 2,000 full-batch steps, anomalous training rows
   repeated `int(n / n_anomalous) - 1` extra times (`models/MLP.py`). The final MLP is evaluated; no checkpoint is
   chosen on the test set.
-- Outputs: `results/rq1_runs.csv` (40 runs), `results/rq1_summary.csv` (mean and sd over 5 seeds beside the paper),
+- Outputs: `results/rq1_runs.csv` (20 runs), `results/rq1_summary.csv` (mean and sd over 5 seeds beside the paper),
   `results/logs/` (job logs).
 
-Mean over 5 seeds, all features (sd of F1 in brackets):
+Mean over 5 seeds (sd of F1 in brackets):
 
 | Dataset, model | Precision | Recall | F1 | AUC | Paper P / R / F1 |
 |---|---|---|---|---|---|
@@ -69,15 +50,6 @@ Mean over 5 seeds, all features (sd of F1 in brackets):
 | HDFS, MLP | 0.996 | 0.999 | 0.997 (0.001) | 1.000 | 0.999 / 0.999 / 0.999 |
 | BGL, RF | 0.958 | 0.808 | 0.873 (0.062) | 0.965 | 0.830 / 0.963 / 0.891 |
 | BGL, MLP | 0.840 | 0.792 | 0.814 (0.026) | 0.892 | 0.958 / 0.840 / 0.895 |
-
-With collinear features removed (step 5), F1 drops in every case:
-
-| Dataset, model | F1 all features | F1 reduced | Features kept (mean) |
-|---|---|---|---|
-| HDFS, RF | 0.998 | 0.996 | 28.0 of 48 |
-| HDFS, MLP | 0.997 | 0.987 | 28.0 of 48 |
-| BGL, RF | 0.873 | 0.810 | 120.6 of 379 |
-| BGL, MLP | 0.814 | 0.740 | 120.6 of 379 |
 
 Findings for the report:
 
@@ -88,25 +60,18 @@ Findings for the report:
 3. Our BGL MLP F1 is 0.081 below the paper. `MLP.py` prints test-set F1 every 10 steps and keeps no validation set,
    so the published value may be the best of those printouts. This is inferred, since the code shows the printing,
    not which value was reported.
-4. Removing correlated and redundant features does not help these models; on BGL it costs 0.06 to 0.07 F1.
-5. Under the clock windowing (826 sessions), BGL RF reaches F1 0.919 and MLP 0.821
-   (`results/bgl_clock_windows/rq1_summary.csv`), so the windowing choice moves BGL RF by 0.046 F1.
 
-Deviations from the plan:
+Deviations from the paper:
 
-- The MLP ran on CPU. One HDFS MLP takes 1,739 s on 16 cores, so each seed is its own array task. Two causes kept
-  the GPU unused, both since resolved (`tests/cuda_ok.py`, `tests/cuda_diag.py`):
-  1. The default environment's torch 2.14.1 targets CUDA 13.2, and the GPU nodes' driver 580 supports CUDA 13.0.
-     `cluster/setup_env_gpu.sh` builds `.venv-gpu` with torch 2.7.1 (CUDA 12.6), which the job script now uses.
-  2. Node fc10612 shows no GPU to torch in any configuration (job 63873126), while torch 2.7.1 works on fc10616
-     (job 63829776). The GPU scripts now exclude fc10612. These results are unchanged by either fix, since the
-     MLP is the same on CPU and GPU.
+- The MLP ran on CPU, one seed per array task (one HDFS MLP takes 1,739 s on 16 cores). The MLP is the same on CPU
+  and GPU. GPU jobs use `.venv-gpu` (torch 2.7.1, `cluster/setup_env_gpu.sh`) because the nodes' driver cannot run
+  the default torch build.
 - Five seeds instead of the paper's single run, so every number has a standard deviation.
 
 ## Step 7. Extension runs (HDFS, four models), completed 2026-10-09
 
 - Code: `src/extension.py`, run as `cluster/ext.sbatch` on one H100 (job 63907609, 12 minutes for all 40 fits).
-- Data: HDFS MCV, all 48 features (the better condition in step 6). 10 stratified 70/30 resamples, seeds 0 to 9,
+- Data: HDFS MCV, all 48 features. 10 stratified 70/30 resamples, seeds 0 to 9,
   each with 402,542 training and 172,519 test sessions.
 - Models:
   1. Random Forest and MLP, supervised, with the step 6 settings.

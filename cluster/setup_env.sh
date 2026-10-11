@@ -8,6 +8,6 @@ python -m venv "$ROOT/.venv"
 source "$ROOT/.venv/bin/activate"
 pip install -q --upgrade pip
 # pyarrow comes from the arrow module. Alliance wheelhouse first (builds against the cluster's libraries); drain3 is only on PyPI.
-pip install -q --no-index numpy pandas scikit-learn scipy statsmodels tqdm torch
+pip install -q --no-index numpy pandas scikit-learn scipy tqdm torch
 pip install -q drain3
-python -c "import numpy, pandas, sklearn, statsmodels, torch, drain3; print('env ok', torch.__version__, sklearn.__version__)"
+python -c "import numpy, pandas, sklearn,, torch, drain3; print('env ok', torch.__version__, sklearn.__version__)"

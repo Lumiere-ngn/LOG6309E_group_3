@@ -3,7 +3,6 @@ pandas
 pyarrow
 scikit-learn
 scipy
-statsmodels
 drain3
 tqdm
 torch

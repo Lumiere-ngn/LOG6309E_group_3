@@ -7,7 +7,7 @@
 #SBATCH --time=03:00:00
 #SBATCH --exclude=fc10512,fc10612
 #SBATCH --output=/scratch/marwan/log6309e/logs/steps3_6_%j.out
-# Steps 3 to 6 of Marwan-plan.md: Drain parse, MCV, collinearity, RF/MLP replication.
+# Steps 3 to 6 of Marwan-plan.md: Drain parse, MCV, RF/MLP replication.
 # Submit from /scratch (not /home): cd /scratch/marwan/log6309e && sbatch cluster/steps_3_6.sbatch
 # SEEDS overrides the seed list, joined with "+" because sbatch --export splits on commas.
 # OUT is the results folder (default results). REQUIRE_GPU=0 lets the MLP run on CPU.
