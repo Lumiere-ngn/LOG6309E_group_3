@@ -1,0 +1,280 @@
+job 64409181 on fc10601 at 2026-10-11T19:39:05Z
+torch 2.7.1 on NVIDIA H100 80GB HBM3, matmul sum 1073741824
+2026-10-11 12:40:02,222 extension HDFS: 575061 sessions, 48 features, 16838 anomalous; device cuda
+2026-10-11 12:40:03,718 extension seed 0 RF: P 0.997 R 0.999 F1 0.998 AUC 1.000 AP 1.000 (1s)
+2026-10-11 12:40:17,358 replicate   MLP step 0 loss 0.6997
+2026-10-11 12:40:33,153 replicate   MLP step 500 loss 0.0044
+2026-10-11 12:40:48,859 replicate   MLP step 1000 loss 0.0012
+2026-10-11 12:41:04,566 replicate   MLP step 1500 loss 0.0007
+2026-10-11 12:41:20,763 extension seed 0 MLP: P 0.996 R 0.999 F1 0.998 AUC 1.000 AP 0.999 (77s)
+2026-10-11 12:41:21,508 extension seed 0 IForest: P 0.756 R 0.577 F1 0.654 AUC 0.950 AP 0.661 (1s)
+2026-10-11 12:41:23,490 extension   AE epoch 0 train loss 0.02446 val loss 0.02462
+2026-10-11 12:41:23,835 extension   AE epoch 5 train loss 0.00182 val loss 0.00171
+2026-10-11 12:41:24,178 extension   AE epoch 10 train loss 0.00005 val loss 0.00006
+2026-10-11 12:41:24,522 extension   AE epoch 15 train loss 0.00001 val loss 0.00004
+2026-10-11 12:41:24,866 extension   AE epoch 20 train loss 0.00010 val loss 0.00003
+2026-10-11 12:41:25,211 extension   AE epoch 25 train loss 0.00008 val loss 0.00003
+2026-10-11 12:41:25,556 extension   AE epoch 30 train loss 0.00003 val loss 0.00003
+2026-10-11 12:41:25,900 extension   AE epoch 35 train loss 0.00001 val loss 0.00003
+2026-10-11 12:41:26,245 extension   AE epoch 40 train loss 0.00001 val loss 0.00003
+2026-10-11 12:41:26,589 extension   AE epoch 45 train loss 0.00001 val loss 0.00003
+2026-10-11 12:41:26,933 extension   AE epoch 50 train loss 0.00007 val loss 0.00003
+2026-10-11 12:41:27,276 extension   AE epoch 55 train loss 0.00001 val loss 0.00003
+2026-10-11 12:41:27,620 extension   AE epoch 60 train loss 0.00001 val loss 0.00002
+2026-10-11 12:41:27,963 extension   AE epoch 65 train loss 0.00004 val loss 0.00002
+2026-10-11 12:41:28,307 extension   AE epoch 70 train loss 0.00001 val loss 0.00002
+2026-10-11 12:41:28,650 extension   AE epoch 75 train loss 0.00000 val loss 0.00002
+2026-10-11 12:41:28,994 extension   AE epoch 80 train loss 0.00002 val loss 0.00002
+2026-10-11 12:41:29,337 extension   AE epoch 85 train loss 0.00001 val loss 0.00002
+2026-10-11 12:41:29,680 extension   AE epoch 90 train loss 0.00002 val loss 0.00002
+2026-10-11 12:41:29,842 extension   AE stopped after 93 epochs, best val loss 0.00002
+2026-10-11 12:41:29,967 extension seed 0 AE: P 0.754 R 1.000 F1 0.860 AUC 1.000 AP 0.995 (8s)
+2026-10-11 12:41:31,048 extension seed 1 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:41:31,584 replicate   MLP step 0 loss 0.7164
+2026-10-11 12:41:47,292 replicate   MLP step 500 loss 0.0015
+2026-10-11 12:42:03,000 replicate   MLP step 1000 loss 0.0011
+2026-10-11 12:42:18,707 replicate   MLP step 1500 loss 0.0008
+2026-10-11 12:42:34,438 extension seed 1 MLP: P 0.996 R 0.998 F1 0.997 AUC 1.000 AP 1.000 (63s)
+2026-10-11 12:42:35,102 extension seed 1 IForest: P 0.757 R 0.635 F1 0.691 AUC 0.966 AP 0.738 (1s)
+2026-10-11 12:42:35,347 extension   AE epoch 0 train loss 0.02779 val loss 0.02794
+2026-10-11 12:42:35,693 extension   AE epoch 5 train loss 0.00166 val loss 0.00160
+2026-10-11 12:42:36,037 extension   AE epoch 10 train loss 0.00087 val loss 0.00089
+2026-10-11 12:42:36,382 extension   AE epoch 15 train loss 0.00071 val loss 0.00071
+2026-10-11 12:42:36,726 extension   AE epoch 20 train loss 0.00065 val loss 0.00051
+2026-10-11 12:42:37,070 extension   AE epoch 25 train loss 0.00001 val loss 0.00005
+2026-10-11 12:42:37,413 extension   AE epoch 30 train loss 0.00001 val loss 0.00004
+2026-10-11 12:42:37,757 extension   AE epoch 35 train loss 0.00002 val loss 0.00004
+2026-10-11 12:42:38,101 extension   AE epoch 40 train loss 0.00004 val loss 0.00004
+2026-10-11 12:42:38,446 extension   AE epoch 45 train loss 0.00002 val loss 0.00004
+2026-10-11 12:42:38,789 extension   AE epoch 50 train loss 0.00002 val loss 0.00003
+2026-10-11 12:42:39,133 extension   AE epoch 55 train loss 0.00005 val loss 0.00003
+2026-10-11 12:42:39,477 extension   AE epoch 60 train loss 0.00000 val loss 0.00003
+2026-10-11 12:42:39,821 extension   AE epoch 65 train loss 0.00001 val loss 0.00003
+2026-10-11 12:42:40,164 extension   AE epoch 70 train loss 0.00000 val loss 0.00003
+2026-10-11 12:42:40,508 extension   AE epoch 75 train loss 0.00022 val loss 0.00003
+2026-10-11 12:42:40,852 extension   AE epoch 80 train loss 0.00000 val loss 0.00003
+2026-10-11 12:42:41,196 extension   AE epoch 85 train loss 0.00002 val loss 0.00003
+2026-10-11 12:42:41,540 extension   AE epoch 90 train loss 0.00013 val loss 0.00003
+2026-10-11 12:42:41,884 extension   AE epoch 95 train loss 0.00001 val loss 0.00003
+2026-10-11 12:42:42,161 extension   AE stopped after 100 epochs, best val loss 0.00003
+2026-10-11 12:42:42,259 extension seed 1 AE: P 0.739 R 1.000 F1 0.850 AUC 1.000 AP 0.988 (7s)
+2026-10-11 12:42:43,304 extension seed 2 RF: P 0.998 R 0.999 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:42:43,822 replicate   MLP step 0 loss 0.7390
+2026-10-11 12:42:59,529 replicate   MLP step 500 loss 0.0019
+2026-10-11 12:43:15,236 replicate   MLP step 1000 loss 0.0012
+2026-10-11 12:43:30,943 replicate   MLP step 1500 loss 0.0006
+2026-10-11 12:43:46,672 extension seed 2 MLP: P 0.997 R 0.999 F1 0.998 AUC 1.000 AP 1.000 (63s)
+2026-10-11 12:43:47,334 extension seed 2 IForest: P 0.748 R 0.585 F1 0.657 AUC 0.962 AP 0.726 (1s)
+2026-10-11 12:43:47,584 extension   AE epoch 0 train loss 0.02645 val loss 0.02600
+2026-10-11 12:43:47,957 extension   AE epoch 5 train loss 0.00314 val loss 0.00314
+2026-10-11 12:43:48,328 extension   AE epoch 10 train loss 0.00044 val loss 0.00045
+2026-10-11 12:43:48,684 extension   AE epoch 15 train loss 0.00002 val loss 0.00003
+2026-10-11 12:43:49,029 extension   AE epoch 20 train loss 0.00000 val loss 0.00002
+2026-10-11 12:43:49,374 extension   AE epoch 25 train loss 0.00001 val loss 0.00002
+2026-10-11 12:43:49,719 extension   AE epoch 30 train loss 0.00000 val loss 0.00002
+2026-10-11 12:43:50,063 extension   AE epoch 35 train loss 0.00001 val loss 0.00002
+2026-10-11 12:43:50,406 extension   AE epoch 40 train loss 0.00001 val loss 0.00002
+2026-10-11 12:43:50,750 extension   AE epoch 45 train loss 0.00004 val loss 0.00002
+2026-10-11 12:43:51,094 extension   AE epoch 50 train loss 0.00001 val loss 0.00002
+2026-10-11 12:43:51,438 extension   AE epoch 55 train loss 0.00001 val loss 0.00001
+2026-10-11 12:43:51,782 extension   AE epoch 60 train loss 0.00000 val loss 0.00001
+2026-10-11 12:43:52,126 extension   AE epoch 65 train loss 0.00001 val loss 0.00001
+2026-10-11 12:43:52,471 extension   AE epoch 70 train loss 0.00000 val loss 0.00001
+2026-10-11 12:43:52,815 extension   AE epoch 75 train loss 0.00000 val loss 0.00001
+2026-10-11 12:43:53,159 extension   AE epoch 80 train loss 0.00000 val loss 0.00001
+2026-10-11 12:43:53,504 extension   AE epoch 85 train loss 0.00000 val loss 0.00001
+2026-10-11 12:43:53,848 extension   AE epoch 90 train loss 0.00000 val loss 0.00001
+2026-10-11 12:43:54,192 extension   AE epoch 95 train loss 0.00001 val loss 0.00001
+2026-10-11 12:43:54,468 extension   AE stopped after 100 epochs, best val loss 0.00001
+2026-10-11 12:43:54,564 extension seed 2 AE: P 0.803 R 1.000 F1 0.891 AUC 1.000 AP 0.995 (7s)
+2026-10-11 12:43:55,620 extension seed 3 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:43:56,141 replicate   MLP step 0 loss 0.6954
+2026-10-11 12:44:11,848 replicate   MLP step 500 loss 0.0018
+2026-10-11 12:44:27,556 replicate   MLP step 1000 loss 0.0014
+2026-10-11 12:44:43,263 replicate   MLP step 1500 loss 0.0010
+2026-10-11 12:44:58,994 extension seed 3 MLP: P 0.994 R 0.998 F1 0.996 AUC 1.000 AP 0.999 (63s)
+2026-10-11 12:44:59,678 extension seed 3 IForest: P 0.753 R 0.626 F1 0.684 AUC 0.958 AP 0.691 (1s)
+2026-10-11 12:44:59,947 extension   AE epoch 0 train loss 0.02429 val loss 0.02385
+2026-10-11 12:45:00,321 extension   AE epoch 5 train loss 0.00103 val loss 0.00088
+2026-10-11 12:45:00,696 extension   AE epoch 10 train loss 0.00010 val loss 0.00003
+2026-10-11 12:45:01,070 extension   AE epoch 15 train loss 0.00004 val loss 0.00003
+2026-10-11 12:45:01,443 extension   AE epoch 20 train loss 0.00002 val loss 0.00002
+2026-10-11 12:45:01,817 extension   AE epoch 25 train loss 0.00001 val loss 0.00002
+2026-10-11 12:45:02,191 extension   AE epoch 30 train loss 0.00001 val loss 0.00002
+2026-10-11 12:45:02,564 extension   AE epoch 35 train loss 0.00000 val loss 0.00002
+2026-10-11 12:45:02,937 extension   AE epoch 40 train loss 0.00000 val loss 0.00001
+2026-10-11 12:45:03,310 extension   AE epoch 45 train loss 0.00001 val loss 0.00001
+2026-10-11 12:45:03,683 extension   AE epoch 50 train loss 0.00000 val loss 0.00001
+2026-10-11 12:45:04,056 extension   AE epoch 55 train loss 0.00000 val loss 0.00001
+2026-10-11 12:45:04,429 extension   AE epoch 60 train loss 0.00001 val loss 0.00001
+2026-10-11 12:45:04,803 extension   AE epoch 65 train loss 0.00000 val loss 0.00001
+2026-10-11 12:45:05,175 extension   AE epoch 70 train loss 0.00001 val loss 0.00000
+2026-10-11 12:45:05,547 extension   AE epoch 75 train loss 0.00000 val loss 0.00000
+2026-10-11 12:45:05,845 extension   AE stopped after 80 epochs, best val loss 0.00000
+2026-10-11 12:45:05,941 extension seed 3 AE: P 0.743 R 1.000 F1 0.852 AUC 1.000 AP 0.995 (6s)
+2026-10-11 12:45:06,964 extension seed 4 RF: P 0.998 R 0.999 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:45:07,472 replicate   MLP step 0 loss 0.6929
+2026-10-11 12:45:23,178 replicate   MLP step 500 loss 0.0022
+2026-10-11 12:45:38,884 replicate   MLP step 1000 loss 0.0016
+2026-10-11 12:45:54,591 replicate   MLP step 1500 loss 0.0012
+2026-10-11 12:46:10,318 extension seed 4 MLP: P 0.996 R 1.000 F1 0.998 AUC 1.000 AP 1.000 (63s)
+2026-10-11 12:46:11,034 extension seed 4 IForest: P 0.757 R 0.613 F1 0.677 AUC 0.962 AP 0.709 (1s)
+2026-10-11 12:46:11,293 extension   AE epoch 0 train loss 0.02245 val loss 0.02270
+2026-10-11 12:46:11,667 extension   AE epoch 5 train loss 0.00170 val loss 0.00172
+2026-10-11 12:46:12,040 extension   AE epoch 10 train loss 0.00069 val loss 0.00076
+2026-10-11 12:46:12,413 extension   AE epoch 15 train loss 0.00004 val loss 0.00008
+2026-10-11 12:46:12,786 extension   AE epoch 20 train loss 0.00001 val loss 0.00004
+2026-10-11 12:46:13,159 extension   AE epoch 25 train loss 0.00001 val loss 0.00003
+2026-10-11 12:46:13,532 extension   AE epoch 30 train loss 0.00003 val loss 0.00003
+2026-10-11 12:46:13,904 extension   AE epoch 35 train loss 0.00004 val loss 0.00002
+2026-10-11 12:46:14,277 extension   AE epoch 40 train loss 0.00001 val loss 0.00002
+2026-10-11 12:46:14,649 extension   AE epoch 45 train loss 0.00001 val loss 0.00001
+2026-10-11 12:46:15,022 extension   AE epoch 50 train loss 0.00000 val loss 0.00001
+2026-10-11 12:46:15,394 extension   AE epoch 55 train loss 0.00001 val loss 0.00001
+2026-10-11 12:46:15,765 extension   AE epoch 60 train loss 0.00001 val loss 0.00001
+2026-10-11 12:46:16,137 extension   AE epoch 65 train loss 0.00000 val loss 0.00001
+2026-10-11 12:46:16,508 extension   AE epoch 70 train loss 0.00001 val loss 0.00001
+2026-10-11 12:46:16,880 extension   AE epoch 75 train loss 0.00000 val loss 0.00001
+2026-10-11 12:46:17,252 extension   AE epoch 80 train loss 0.00001 val loss 0.00001
+2026-10-11 12:46:17,624 extension   AE epoch 85 train loss 0.00000 val loss 0.00001
+2026-10-11 12:46:17,995 extension   AE epoch 90 train loss 0.00000 val loss 0.00001
+2026-10-11 12:46:18,292 extension   AE stopped after 95 epochs, best val loss 0.00001
+2026-10-11 12:46:18,387 extension seed 4 AE: P 0.885 R 1.000 F1 0.939 AUC 1.000 AP 0.995 (7s)
+2026-10-11 12:46:19,432 extension seed 5 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 AP 0.999 (0s)
+2026-10-11 12:46:19,956 replicate   MLP step 0 loss 0.8083
+2026-10-11 12:46:35,664 replicate   MLP step 500 loss 0.0016
+2026-10-11 12:46:51,372 replicate   MLP step 1000 loss 0.0008
+2026-10-11 12:47:07,079 replicate   MLP step 1500 loss 0.0005
+2026-10-11 12:47:22,810 extension seed 5 MLP: P 0.996 R 0.999 F1 0.997 AUC 1.000 AP 1.000 (63s)
+2026-10-11 12:47:23,465 extension seed 5 IForest: P 0.754 R 0.624 F1 0.683 AUC 0.965 AP 0.691 (1s)
+2026-10-11 12:47:23,711 extension   AE epoch 0 train loss 0.03262 val loss 0.03309
+2026-10-11 12:47:24,054 extension   AE epoch 5 train loss 0.00241 val loss 0.00249
+2026-10-11 12:47:24,398 extension   AE epoch 10 train loss 0.00030 val loss 0.00031
+2026-10-11 12:47:24,741 extension   AE epoch 15 train loss 0.00002 val loss 0.00004
+2026-10-11 12:47:25,085 extension   AE epoch 20 train loss 0.00001 val loss 0.00003
+2026-10-11 12:47:25,429 extension   AE epoch 25 train loss 0.00004 val loss 0.00002
+2026-10-11 12:47:25,773 extension   AE epoch 30 train loss 0.00001 val loss 0.00002
+2026-10-11 12:47:26,117 extension   AE epoch 35 train loss 0.00001 val loss 0.00002
+2026-10-11 12:47:26,460 extension   AE epoch 40 train loss 0.00005 val loss 0.00002
+2026-10-11 12:47:26,804 extension   AE epoch 45 train loss 0.00000 val loss 0.00002
+2026-10-11 12:47:27,148 extension   AE epoch 50 train loss 0.00000 val loss 0.00002
+2026-10-11 12:47:27,492 extension   AE epoch 55 train loss 0.00001 val loss 0.00002
+2026-10-11 12:47:27,835 extension   AE epoch 60 train loss 0.00001 val loss 0.00001
+2026-10-11 12:47:28,180 extension   AE epoch 65 train loss 0.00001 val loss 0.00001
+2026-10-11 12:47:28,524 extension   AE epoch 70 train loss 0.00000 val loss 0.00001
+2026-10-11 12:47:28,868 extension   AE epoch 75 train loss 0.00001 val loss 0.00001
+2026-10-11 12:47:29,211 extension   AE epoch 80 train loss 0.00002 val loss 0.00002
+2026-10-11 12:47:29,555 extension   AE epoch 85 train loss 0.00000 val loss 0.00001
+2026-10-11 12:47:29,900 extension   AE epoch 90 train loss 0.00000 val loss 0.00001
+2026-10-11 12:47:30,244 extension   AE epoch 95 train loss 0.00000 val loss 0.00001
+2026-10-11 12:47:30,518 extension   AE stopped after 100 epochs, best val loss 0.00001
+2026-10-11 12:47:30,615 extension seed 5 AE: P 0.776 R 1.000 F1 0.874 AUC 1.000 AP 0.997 (7s)
+2026-10-11 12:47:31,661 extension seed 6 RF: P 0.998 R 0.998 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:47:32,185 replicate   MLP step 0 loss 0.6970
+2026-10-11 12:47:47,892 replicate   MLP step 500 loss 0.0020
+2026-10-11 12:48:03,598 replicate   MLP step 1000 loss 0.0012
+2026-10-11 12:48:19,305 replicate   MLP step 1500 loss 0.0007
+2026-10-11 12:48:35,032 extension seed 6 MLP: P 0.996 R 0.999 F1 0.998 AUC 1.000 AP 0.999 (63s)
+2026-10-11 12:48:35,702 extension seed 6 IForest: P 0.754 R 0.592 F1 0.663 AUC 0.951 AP 0.688 (1s)
+2026-10-11 12:48:35,961 extension   AE epoch 0 train loss 0.06801 val loss 0.06345
+2026-10-11 12:48:36,331 extension   AE epoch 5 train loss 0.00234 val loss 0.00227
+2026-10-11 12:48:36,701 extension   AE epoch 10 train loss 0.00062 val loss 0.00064
+2026-10-11 12:48:37,070 extension   AE epoch 15 train loss 0.00002 val loss 0.00002
+2026-10-11 12:48:37,440 extension   AE epoch 20 train loss 0.00006 val loss 0.00002
+2026-10-11 12:48:37,811 extension   AE epoch 25 train loss 0.00001 val loss 0.00002
+2026-10-11 12:48:38,181 extension   AE epoch 30 train loss 0.00000 val loss 0.00001
+2026-10-11 12:48:38,552 extension   AE epoch 35 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:38,922 extension   AE epoch 40 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:39,292 extension   AE epoch 45 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:39,661 extension   AE epoch 50 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:40,030 extension   AE epoch 55 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:40,400 extension   AE epoch 60 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:40,769 extension   AE epoch 65 train loss 0.00003 val loss 0.00001
+2026-10-11 12:48:41,139 extension   AE epoch 70 train loss 0.00002 val loss 0.00001
+2026-10-11 12:48:41,510 extension   AE epoch 75 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:41,880 extension   AE epoch 80 train loss 0.00001 val loss 0.00001
+2026-10-11 12:48:42,249 extension   AE epoch 85 train loss 0.00000 val loss 0.00001
+2026-10-11 12:48:42,618 extension   AE epoch 90 train loss 0.00000 val loss 0.00001
+2026-10-11 12:48:42,913 extension   AE stopped after 95 epochs, best val loss 0.00001
+2026-10-11 12:48:43,009 extension seed 6 AE: P 0.875 R 1.000 F1 0.933 AUC 1.000 AP 0.995 (7s)
+2026-10-11 12:48:44,072 extension seed 7 RF: P 0.998 R 0.999 F1 0.999 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:48:44,597 replicate   MLP step 0 loss 0.6968
+2026-10-11 12:49:00,304 replicate   MLP step 500 loss 0.0019
+2026-10-11 12:49:16,012 replicate   MLP step 1000 loss 0.0013
+2026-10-11 12:49:31,720 replicate   MLP step 1500 loss 0.0008
+2026-10-11 12:49:47,462 extension seed 7 MLP: P 0.995 R 0.999 F1 0.997 AUC 1.000 AP 0.998 (63s)
+2026-10-11 12:49:48,134 extension seed 7 IForest: P 0.766 R 0.611 F1 0.680 AUC 0.962 AP 0.707 (1s)
+2026-10-11 12:49:48,379 extension   AE epoch 0 train loss 0.02447 val loss 0.02377
+2026-10-11 12:49:48,724 extension   AE epoch 5 train loss 0.00250 val loss 0.00261
+2026-10-11 12:49:49,069 extension   AE epoch 10 train loss 0.00002 val loss 0.00003
+2026-10-11 12:49:49,413 extension   AE epoch 15 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:49,756 extension   AE epoch 20 train loss 0.00005 val loss 0.00001
+2026-10-11 12:49:50,099 extension   AE epoch 25 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:50,442 extension   AE epoch 30 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:50,785 extension   AE epoch 35 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:51,127 extension   AE epoch 40 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:51,470 extension   AE epoch 45 train loss 0.00000 val loss 0.00001
+2026-10-11 12:49:51,814 extension   AE epoch 50 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:52,157 extension   AE epoch 55 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:52,501 extension   AE epoch 60 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:52,843 extension   AE epoch 65 train loss 0.00000 val loss 0.00001
+2026-10-11 12:49:53,186 extension   AE epoch 70 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:53,529 extension   AE epoch 75 train loss 0.00001 val loss 0.00001
+2026-10-11 12:49:53,666 extension   AE stopped after 78 epochs, best val loss 0.00001
+2026-10-11 12:49:53,759 extension seed 7 AE: P 0.888 R 1.000 F1 0.941 AUC 1.000 AP 0.995 (6s)
+2026-10-11 12:49:54,829 extension seed 8 RF: P 0.997 R 0.998 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:49:55,348 replicate   MLP step 0 loss 0.7446
+2026-10-11 12:50:11,056 replicate   MLP step 500 loss 0.0044
+2026-10-11 12:50:26,762 replicate   MLP step 1000 loss 0.0014
+2026-10-11 12:50:42,469 replicate   MLP step 1500 loss 0.0008
+2026-10-11 12:50:58,210 extension seed 8 MLP: P 0.995 R 1.000 F1 0.997 AUC 1.000 AP 1.000 (63s)
+2026-10-11 12:50:58,916 extension seed 8 IForest: P 0.766 R 0.629 F1 0.691 AUC 0.960 AP 0.739 (1s)
+2026-10-11 12:50:59,214 extension   AE epoch 0 train loss 0.04011 val loss 0.03818
+2026-10-11 12:50:59,586 extension   AE epoch 5 train loss 0.00194 val loss 0.00193
+2026-10-11 12:50:59,958 extension   AE epoch 10 train loss 0.00063 val loss 0.00064
+2026-10-11 12:51:00,331 extension   AE epoch 15 train loss 0.00003 val loss 0.00005
+2026-10-11 12:51:00,702 extension   AE epoch 20 train loss 0.00001 val loss 0.00004
+2026-10-11 12:51:01,074 extension   AE epoch 25 train loss 0.00006 val loss 0.00003
+2026-10-11 12:51:01,444 extension   AE epoch 30 train loss 0.00001 val loss 0.00002
+2026-10-11 12:51:01,816 extension   AE epoch 35 train loss 0.00001 val loss 0.00002
+2026-10-11 12:51:02,186 extension   AE epoch 40 train loss 0.00001 val loss 0.00001
+2026-10-11 12:51:02,557 extension   AE epoch 45 train loss 0.00001 val loss 0.00001
+2026-10-11 12:51:02,927 extension   AE epoch 50 train loss 0.00000 val loss 0.00001
+2026-10-11 12:51:03,301 extension   AE epoch 55 train loss 0.00001 val loss 0.00001
+2026-10-11 12:51:03,674 extension   AE epoch 60 train loss 0.00001 val loss 0.00001
+2026-10-11 12:51:03,897 extension   AE stopped after 64 epochs, best val loss 0.00001
+2026-10-11 12:51:03,993 extension seed 8 AE: P 0.881 R 1.000 F1 0.937 AUC 1.000 AP 0.995 (5s)
+2026-10-11 12:51:05,021 extension seed 9 RF: P 0.997 R 0.999 F1 0.998 AUC 1.000 AP 1.000 (0s)
+2026-10-11 12:51:05,530 replicate   MLP step 0 loss 0.6944
+2026-10-11 12:51:21,237 replicate   MLP step 500 loss 0.0022
+2026-10-11 12:51:37,450 replicate   MLP step 1000 loss 0.0016
+2026-10-11 12:51:53,157 replicate   MLP step 1500 loss 0.0011
+2026-10-11 12:52:08,958 extension seed 9 MLP: P 0.978 R 1.000 F1 0.989 AUC 1.000 AP 0.999 (64s)
+2026-10-11 12:52:09,654 extension seed 9 IForest: P 0.756 R 0.622 F1 0.683 AUC 0.959 AP 0.709 (1s)
+2026-10-11 12:52:10,100 extension   AE epoch 0 train loss 0.02582 val loss 0.02558
+2026-10-11 12:52:10,473 extension   AE epoch 5 train loss 0.00341 val loss 0.00346
+2026-10-11 12:52:10,817 extension   AE epoch 10 train loss 0.00158 val loss 0.00146
+2026-10-11 12:52:11,161 extension   AE epoch 15 train loss 0.00068 val loss 0.00057
+2026-10-11 12:52:11,505 extension   AE epoch 20 train loss 0.00012 val loss 0.00011
+2026-10-11 12:52:11,847 extension   AE epoch 25 train loss 0.00007 val loss 0.00004
+2026-10-11 12:52:12,190 extension   AE epoch 30 train loss 0.00002 val loss 0.00002
+2026-10-11 12:52:12,533 extension   AE epoch 35 train loss 0.00001 val loss 0.00002
+2026-10-11 12:52:12,876 extension   AE epoch 40 train loss 0.00002 val loss 0.00002
+2026-10-11 12:52:13,221 extension   AE epoch 45 train loss 0.00003 val loss 0.00001
+2026-10-11 12:52:13,566 extension   AE epoch 50 train loss 0.00001 val loss 0.00001
+2026-10-11 12:52:13,910 extension   AE epoch 55 train loss 0.00001 val loss 0.00001
+2026-10-11 12:52:14,253 extension   AE epoch 60 train loss 0.00002 val loss 0.00001
+2026-10-11 12:52:14,596 extension   AE epoch 65 train loss 0.00001 val loss 0.00001
+2026-10-11 12:52:14,940 extension   AE epoch 70 train loss 0.00001 val loss 0.00001
+2026-10-11 12:52:15,284 extension   AE epoch 75 train loss 0.00001 val loss 0.00001
+2026-10-11 12:52:15,627 extension   AE epoch 80 train loss 0.00001 val loss 0.00001
+2026-10-11 12:52:15,643 extension   AE stopped after 81 epochs, best val loss 0.00001
+2026-10-11 12:52:15,737 extension seed 9 AE: P 0.827 R 1.000 F1 0.906 AUC 1.000 AP 0.995 (6s)
+2026-10-11 12:52:16,109 extension 
+         precision_mean  precision_std  recall_mean  recall_std  f1_mean  f1_std  auc_mean  auc_std  ap_mean  ap_std  precision_f1max_mean  precision_f1max_std  recall_f1max_mean  recall_f1max_std  f1_f1max_mean  f1_f1max_std
+model                                                                                                                                                                                                                            
+AE                0.817          0.062        1.000       0.000    0.898   0.038      1.00    0.000    0.994   0.002                 0.978                0.006              0.997             0.005          0.987         0.003
+IForest           0.757          0.006        0.611       0.020    0.676   0.013      0.96    0.005    0.706   0.024                 0.747                0.122              0.656             0.121          0.681         0.016
+MLP               0.994          0.006        0.999       0.001    0.997   0.003      1.00    0.000    0.999   0.001                   NaN                  NaN                NaN               NaN            NaN           NaN
+RF                0.998          0.000        0.999       0.000    0.998   0.000      1.00    0.000    1.000   0.000                   NaN                  NaN                NaN               NaN            NaN           NaN
+done at 2026-10-11T19:52:18Z

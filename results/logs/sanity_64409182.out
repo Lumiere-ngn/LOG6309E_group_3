@@ -1,0 +1,82 @@
+job 64409182 on fc30605 at 2026-10-11T19:38:34Z
+2026-10-11 12:39:14,851 sanity_checks BGL: 719 windows, 384 anomalous, 379 templates
+2026-10-11 12:39:14,940 sanity_checks BGL seed 0 all_anomalous : P 0.535 R 1.000 F1 0.697
+2026-10-11 12:39:14,941 sanity_checks BGL seed 0 best_template a31b789f: P 0.981 R 0.675 F1 0.800
+2026-10-11 12:39:14,944 sanity_checks BGL seed 1 all_anomalous : P 0.535 R 1.000 F1 0.697
+2026-10-11 12:39:14,945 sanity_checks BGL seed 1 best_template a31b789f: P 1.000 R 0.675 F1 0.806
+2026-10-11 12:39:14,946 sanity_checks BGL seed 2 all_anomalous : P 0.535 R 1.000 F1 0.697
+2026-10-11 12:39:14,947 sanity_checks BGL seed 2 best_template a31b789f: P 1.000 R 0.636 F1 0.778
+2026-10-11 12:39:14,949 sanity_checks BGL seed 3 all_anomalous : P 0.535 R 1.000 F1 0.697
+2026-10-11 12:39:14,950 sanity_checks BGL seed 3 best_template a31b789f: P 1.000 R 0.545 F1 0.706
+2026-10-11 12:39:14,951 sanity_checks BGL seed 4 all_anomalous : P 0.535 R 1.000 F1 0.697
+2026-10-11 12:39:14,952 sanity_checks BGL seed 4 best_template a31b789f: P 1.000 R 0.494 F1 0.661
+2026-10-11 12:39:14,980 sanity_checks BGL chronological: train 575 (314 anomalous), test 144 (70 anomalous)
+2026-10-11 12:39:15,210 sanity_checks BGL chronological RF seed 0: P 0.878 R 0.614 F1 0.723
+2026-10-11 12:39:15,251 sanity_checks BGL chronological RF seed 1: P 1.000 R 0.529 F1 0.692
+2026-10-11 12:39:15,289 sanity_checks BGL chronological RF seed 2: P 0.816 R 0.571 F1 0.672
+2026-10-11 12:39:15,330 sanity_checks BGL chronological RF seed 3: P 0.930 R 0.571 F1 0.708
+2026-10-11 12:39:15,373 sanity_checks BGL chronological RF seed 4: P 0.929 R 0.557 F1 0.696
+2026-10-11 12:39:22,021 replicate   MLP step 0 loss 0.7105
+2026-10-11 12:39:22,735 replicate   MLP step 500 loss 0.0865
+2026-10-11 12:39:23,374 replicate   MLP step 1000 loss 0.1074
+2026-10-11 12:39:24,012 replicate   MLP step 1500 loss 0.1023
+2026-10-11 12:39:24,870 sanity_checks BGL chronological MLP seed 0: P 0.511 R 0.957 F1 0.667
+2026-10-11 12:39:24,878 replicate   MLP step 0 loss 0.6939
+2026-10-11 12:39:25,532 replicate   MLP step 500 loss 0.0848
+2026-10-11 12:39:26,184 replicate   MLP step 1000 loss 0.0920
+2026-10-11 12:39:26,840 replicate   MLP step 1500 loss 0.0939
+2026-10-11 12:39:27,497 sanity_checks BGL chronological MLP seed 1: P 0.528 R 0.957 F1 0.680
+2026-10-11 12:39:27,502 replicate   MLP step 0 loss 0.6925
+2026-10-11 12:39:28,157 replicate   MLP step 500 loss 0.0823
+2026-10-11 12:39:28,820 replicate   MLP step 1000 loss 0.0802
+2026-10-11 12:39:29,486 replicate   MLP step 1500 loss 0.0758
+2026-10-11 12:39:30,146 sanity_checks BGL chronological MLP seed 2: P 0.528 R 0.943 F1 0.677
+2026-10-11 12:39:30,150 replicate   MLP step 0 loss 0.7588
+2026-10-11 12:39:30,808 replicate   MLP step 500 loss 0.0821
+2026-10-11 12:39:31,474 replicate   MLP step 1000 loss 0.0750
+2026-10-11 12:39:32,139 replicate   MLP step 1500 loss 0.0832
+2026-10-11 12:39:32,810 sanity_checks BGL chronological MLP seed 3: P 0.544 R 0.971 F1 0.697
+2026-10-11 12:39:32,815 replicate   MLP step 0 loss 0.6899
+2026-10-11 12:39:33,464 replicate   MLP step 500 loss 0.0858
+2026-10-11 12:39:34,108 replicate   MLP step 1000 loss 0.0834
+2026-10-11 12:39:34,758 replicate   MLP step 1500 loss 0.0830
+2026-10-11 12:39:35,409 sanity_checks BGL chronological MLP seed 4: P 0.535 R 0.971 F1 0.690
+2026-10-11 12:39:35,574 sanity_checks HDFS: 575061 sessions, 16838 anomalous
+2026-10-11 12:39:41,857 sanity_checks HDFS seed 0: 172428 of 172519 test sessions (0.9995) also in train; 91 unseen
+2026-10-11 12:39:48,051 sanity_checks HDFS seed 1: 172425 of 172519 test sessions (0.9995) also in train; 94 unseen
+2026-10-11 12:39:54,123 sanity_checks HDFS seed 2: 172436 of 172519 test sessions (0.9995) also in train; 83 unseen
+2026-10-11 12:40:00,335 sanity_checks HDFS seed 3: 172435 of 172519 test sessions (0.9995) also in train; 84 unseen
+2026-10-11 12:40:06,433 sanity_checks HDFS seed 4: 172424 of 172519 test sessions (0.9994) also in train; 95 unseen
+2026-10-11 12:40:12,933 sanity_checks HDFS seed 0 RF on 91 unseen sessions (70 anomalous): F1 0.965
+2026-10-11 12:40:19,445 sanity_checks HDFS seed 1 RF on 94 unseen sessions (67 anomalous): F1 0.937
+2026-10-11 12:40:25,903 sanity_checks HDFS seed 2 RF on 83 unseen sessions (67 anomalous): F1 0.963
+2026-10-11 12:40:32,878 sanity_checks HDFS seed 3 RF on 84 unseen sessions (65 anomalous): F1 0.944
+2026-10-11 12:40:39,668 sanity_checks HDFS seed 4 RF on 95 unseen sessions (70 anomalous): F1 0.965
+2026-10-11 12:40:47,137 replicate   MLP step 0 loss 0.6997
+2026-10-11 12:47:20,776 replicate   MLP step 500 loss 0.0044
+2026-10-11 12:53:47,029 replicate   MLP step 1000 loss 0.0012
+2026-10-11 13:00:07,363 replicate   MLP step 1500 loss 0.0007
+2026-10-11 13:06:30,269 sanity_checks HDFS seed 0 MLP on 91 unseen sessions (70 anomalous): F1 0.951
+2026-10-11 13:06:37,719 replicate   MLP step 0 loss 0.7163
+2026-10-11 13:13:03,666 replicate   MLP step 500 loss 0.0015
+2026-10-11 13:19:24,378 replicate   MLP step 1000 loss 0.0011
+2026-10-11 13:25:46,282 replicate   MLP step 1500 loss 0.0008
+2026-10-11 13:31:59,838 sanity_checks HDFS seed 1 MLP on 94 unseen sessions (67 anomalous): F1 0.945
+2026-10-11 13:32:08,032 replicate   MLP step 0 loss 0.7389
+2026-10-11 13:38:29,309 replicate   MLP step 500 loss 0.0019
+2026-10-11 13:44:47,848 replicate   MLP step 1000 loss 0.0012
+2026-10-11 13:51:14,701 replicate   MLP step 1500 loss 0.0006
+2026-10-11 13:57:39,662 sanity_checks HDFS seed 2 MLP on 83 unseen sessions (67 anomalous): F1 0.940
+2026-10-11 13:57:47,186 replicate   MLP step 0 loss 0.6953
+2026-10-11 14:04:06,315 replicate   MLP step 500 loss 0.0018
+2026-10-11 14:10:10,957 replicate   MLP step 1000 loss 0.0014
+2026-10-11 14:16:00,394 replicate   MLP step 1500 loss 0.0010
+2026-10-11 14:22:17,233 sanity_checks HDFS seed 3 MLP on 84 unseen sessions (65 anomalous): F1 0.906
+2026-10-11 14:22:24,790 replicate   MLP step 0 loss 0.6929
+2026-10-11 14:28:47,918 replicate   MLP step 500 loss 0.0022
+2026-10-11 14:35:23,853 replicate   MLP step 1000 loss 0.0016
+2026-10-11 14:41:52,182 replicate   MLP step 1500 loss 0.0012
+2026-10-11 14:48:21,007 sanity_checks HDFS seed 4 MLP on 95 unseen sessions (70 anomalous): F1 0.958
+2026-10-11 14:48:21,749 sanity_checks HDFS RF distinct union: 277 sessions (206 anomalous), F1 0.957 [0.936, 0.975]
+2026-10-11 14:48:21,762 sanity_checks HDFS MLP distinct union: 277 sessions (206 anomalous), F1 0.944 [0.921, 0.964]
+done at 2026-10-11T21:48:32Z

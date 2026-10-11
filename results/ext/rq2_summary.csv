@@ -1,5 +1,5 @@
-model,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,auc_mean,auc_std
-AE,0.824,0.087,0.964,0.115,0.885,0.088,0.999,0.002
-IForest,0.757,0.006,0.611,0.02,0.676,0.013,0.96,0.005
-MLP,0.994,0.006,0.999,0.001,0.997,0.003,1.0,0.0
-RF,0.998,0.0,0.999,0.0,0.998,0.0,1.0,0.0
+model,precision_mean,precision_std,recall_mean,recall_std,f1_mean,f1_std,auc_mean,auc_std,ap_mean,ap_std,precision_f1max_mean,precision_f1max_std,recall_f1max_mean,recall_f1max_std,f1_f1max_mean,f1_f1max_std
+AE,0.817,0.062,1.0,0.0,0.898,0.038,1.0,0.0,0.994,0.002,0.978,0.006,0.997,0.005,0.987,0.003
+IForest,0.757,0.006,0.611,0.02,0.676,0.013,0.96,0.005,0.706,0.024,0.747,0.122,0.656,0.121,0.681,0.016
+MLP,0.994,0.006,0.999,0.001,0.997,0.003,1.0,0.0,0.999,0.001,,,,,,
+RF,0.998,0.0,0.999,0.0,0.998,0.0,1.0,0.0,1.0,0.0,,,,,,

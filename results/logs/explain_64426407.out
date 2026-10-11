@@ -1,0 +1,12 @@
+explained 4000 test sessions (2000 anomalous)
+ EventId  mean_abs_shap  mean_shap_anomalous  mean_shap_normal                                                                                                                      template
+2e68ccc3         0.1431               0.2730           -0.0080                                                Unexpected error trying to delete block <*>. BlockInfo not found in volumeMap.
+46003790         0.0700               0.1342           -0.0037                                                                                      Received block <*> of size <*> from /<*>
+bbb51b95         0.0639               0.1233           -0.0030                                                                                      Receiving block <*> src: /<*> dest: /<*>
+5d5de21c         0.0627               0.1200           -0.0041                                              BLOCK* NameSystem.addStoredBlock: blockMap updated: <*> is added to <*> size <*>
+dba996ef         0.0350               0.0554            0.0114                                                                                                   Deleting block <*> file <*>
+d38aa58d         0.0282               0.0531           -0.0021                                                                                         PacketResponder <*> for block <*> <*>
+c294d20f         0.0254               0.0477           -0.0016                           BLOCK* NameSystem.addStoredBlock: Redundant addStoredBlock request received for <*> on <*> size <*>
+40651754         0.0201               0.0385           -0.0005                                                                              <*> Starting thread to transfer block <*> to <*>
+8f2bc724         0.0153               0.0290           -0.0009 BLOCK* NameSystem.addStoredBlock: addStoredBlock request received for <*> on <*> size <*> But it does not belong to any file.
+0567184d         0.0141               0.0264           -0.0009                                                                                          Receiving empty packet for block <*>

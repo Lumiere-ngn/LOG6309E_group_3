@@ -1,0 +1,27 @@
+  model metric      tier  median   mean     sd  n  group  group_all_pairs
+     RF    auc   primary  1.0000 0.9999 0.0001 10      1                1
+    MLP    auc   primary  1.0000 1.0000 0.0000 10      1                1
+     AE    auc   primary  0.9999 0.9999 0.0000 10      2                2
+IForest    auc   primary  0.9609 0.9595 0.0052 10      3                3
+     RF     ap   primary  0.9999 0.9998 0.0003 10      1                1
+    MLP     ap   primary  0.9996 0.9993 0.0006 10      2                2
+     AE     ap   primary  0.9949 0.9944 0.0025 10      3                3
+IForest     ap   primary  0.7079 0.7058 0.0244 10      4                4
+     RF     f1 secondary  0.9981 0.9981 0.0004 10      1                1
+    MLP     f1 secondary  0.9973 0.9966 0.0027 10      2                2
+     AE     f1 secondary  0.8982 0.8982 0.0378 10      3                3
+IForest     f1 secondary  0.6811 0.6762 0.0134 10      4                4
+
+F1 gap per pair of models, with the test sessions behind it
+model_a model_b  median_f1_a  median_f1_b  f1_gap   n_test  n_test_anomalous  mean_errors_a  mean_errors_b  error_gap_sessions
+     RF     MLP       0.9981       0.9973  0.0008 172519.0            5051.0           19.7           34.9                15.2
+     RF      AE       0.9981       0.8982  0.0999 172519.0            5051.0           19.7         1162.6              1142.9
+     RF IForest       0.9981       0.6811  0.3171 172519.0            5051.0           19.7         2955.6              2935.9
+    MLP      AE       0.9973       0.8982  0.0991 172519.0            5051.0           34.9         1162.6              1127.7
+    MLP IForest       0.9973       0.6811  0.3163 172519.0            5051.0           34.9         2955.6              2920.7
+     AE IForest       0.8982       0.6811  0.2172 172519.0            5051.0         1162.6         2955.6              1793.0
+Traceback (most recent call last):
+  File "/scratch/marwan/log6309e/src/explain.py", line 21, in <module>
+    import shap  # noqa: E402
+    ^^^^^^^^^^^
+ModuleNotFoundError: No module named 'shap'
