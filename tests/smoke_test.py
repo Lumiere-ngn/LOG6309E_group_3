@@ -179,12 +179,13 @@ def check_sanity_checks() -> None:
     xs = np.concatenate([rng.poisson(2, (600, 4)), rng.integers(100, 200, (400, 4))]).astype(float)
     ys = np.concatenate([rng.random(600) < 0.1, rng.random(400) < 0.5]).astype(int)  # the second block is unique rows
     unseen = sanity_checks.unseen_f1_rows(xs, ys, [0, 1])
-    per, pooled = unseen[unseen["seed"] != "pooled"], unseen[unseen["seed"] == "pooled"].set_index("model")
+    per, union = unseen[unseen["seed"] != "distinct_union"], unseen[unseen["seed"] == "distinct_union"].set_index("model")
     for model in ("RF", "MLP"):
         sub = per[per["model"] == model]
-        assert pooled.loc[model, "n_unseen"] == sub["n_unseen"].sum() and pooled.loc[model, "tp"] == sub["tp"].sum()
-        assert pooled.loc[model, "n_unseen"] == sub[["tp", "fp", "fn", "tn"]].sum().sum(), "counts must add to n_unseen"
-        assert 0.0 <= pooled.loc[model, "f1"] <= 1.0 and pooled.loc[model, "n_unseen"] > 0
+        n_u = union.loc[model, "n_unseen"]
+        # a session unseen in both seeds is counted once, so the union is below the per-seed sum but not below the max
+        assert sub["n_unseen"].max() <= n_u < sub["n_unseen"].sum(), (n_u, sub["n_unseen"].tolist())
+        assert union.loc[model, "f1_ci_low"] <= union.loc[model, "f1"] <= union.loc[model, "f1_ci_high"]
     print("sanity_checks: template rule, chronological split and overlap count behave as planted")
 
 

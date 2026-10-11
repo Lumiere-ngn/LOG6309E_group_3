@@ -14,8 +14,8 @@ Outputs (results/sanity/):
   hdfs_overlap.csv      HDFS, the step 6 split (stratified 70/30, seeds 0 to 4): how many test sessions have a count
                         vector that also appears in the training split. Counts only.
   hdfs_unseen_f1.csv    HDFS, same splits: RF and MLP (step 6 settings) scored on the test sessions whose count vector
-                        never appears in training. One row per model and seed, plus a "pooled" row per model that sums
-                        the confusion counts over the seeds (F1 from the pooled counts, with the session count).
+                        never appears in training. One row per model and seed, plus a "distinct_union" row per model
+                        that counts each unseen session once, with a 95% bootstrap interval over sessions.
 
 Usage: python src/sanity_checks.py [--checks bgl_baselines bgl_chronological hdfs_overlap] [--seeds 0 1 2 3 4]
                                    [--out results/sanity]
@@ -112,42 +112,66 @@ def row_ids(train: np.ndarray, test: np.ndarray) -> tuple[np.ndarray, np.ndarray
 
 
 def hdfs_split(x_all: np.ndarray, y_all: np.ndarray, seed: int):
-    """The step 6 HDFS split, and which test sessions have a count vector that also occurs in training."""
-    x_tr, x_te, y_tr, y_te = train_test_split(x_all, y_all, test_size=TEST_SIZE["HDFS"], stratify=y_all,
-                                              random_state=seed)
+    """The step 6 HDFS split, the test rows' session indices, and which test sessions have a count vector that also
+    occurs in training."""
+    idx_tr, idx_te = train_test_split(np.arange(len(y_all)), test_size=TEST_SIZE["HDFS"], stratify=y_all,
+                                      random_state=seed)
+    x_tr, x_te, y_tr, y_te = x_all[idx_tr], x_all[idx_te], y_all[idx_tr], y_all[idx_te]
     ids_tr, ids_te = row_ids(x_tr, x_te)
-    return x_tr, x_te, y_tr, y_te, np.isin(ids_te, np.unique(ids_tr))
+    return x_tr, x_te, y_tr, y_te, idx_te, np.isin(ids_te, np.unique(ids_tr))
 
 
-def unseen_f1_rows(x_all: np.ndarray, y_all: np.ndarray, seeds: list[int]) -> pd.DataFrame:
-    """RF and MLP fitted on the full training split, scored on the unseen test sessions only."""
-    rows = []
+def weighted_prf(y: np.ndarray, pred: np.ndarray, w: np.ndarray) -> tuple[float, float, float]:
+    tp, fp, fn = (w * ((pred == 1) & (y == 1))).sum(), (w * ((pred == 1) & (y == 0))).sum(), \
+        (w * ((pred == 0) & (y == 1))).sum()
+    p = tp / (tp + fp) if tp + fp else float("nan")
+    r = tp / (tp + fn) if tp + fn else float("nan")
+    return p, r, (2 * tp / (2 * tp + fp + fn) if 2 * tp + fp + fn else 0.0)
+
+
+def unseen_f1_rows(x_all: np.ndarray, y_all: np.ndarray, seeds: list[int], n_boot: int = 2000) -> pd.DataFrame:
+    """RF and MLP fitted on each seed's full training split, scored on the test sessions whose count vector never
+    appears in that training split. Council decision 2026-10-11 (plan/council-thresholds): the summary row is the
+    distinct union of unseen sessions, each session counted once (its predictions from the seeds where it was unseen
+    share a weight of 1), with a 95% bootstrap interval resampling sessions. An unranked stress test."""
+    rows, recs = [], []
     for name, fit in (("RF", fit_rf), ("MLP", fit_mlp)):
         for seed in seeds:
-            x_tr, x_te, y_tr, y_te, seen = hdfs_split(x_all, y_all, seed)
+            x_tr, x_te, y_tr, y_te, idx_te, seen = hdfs_split(x_all, y_all, seed)
             set_seed(seed)
             pred, _ = fit(x_tr, y_tr, x_te, seed)
             u_true, u_pred = y_te[~seen], pred[~seen]
-            tp, fp = int(((u_pred == 1) & (u_true == 1)).sum()), int(((u_pred == 1) & (u_true == 0)).sum())
-            fn, tn = int(((u_pred == 0) & (u_true == 1)).sum()), int(((u_pred == 0) & (u_true == 0)).sum())
+            p, r, f1 = weighted_prf(u_true, u_pred, np.ones(len(u_true)))
             rows.append({"model": name, "seed": str(seed), "n_unseen": len(u_true), "n_unseen_pos": int(u_true.sum()),
-                         "tp": tp, "fp": fp, "fn": fn, "tn": tn})
-            log.info("HDFS seed %d %s on %d unseen sessions (%d anomalous): TP %d FP %d FN %d", seed, name,
-                     len(u_true), u_true.sum(), tp, fp, fn)
-    per_seed = pd.DataFrame(rows)
-    pooled = per_seed.groupby("model", sort=False)[["n_unseen", "n_unseen_pos", "tp", "fp", "fn", "tn"]].sum()
-    pooled.insert(0, "seed", "pooled")
-    out = pd.concat([per_seed, pooled.reset_index()], ignore_index=True)
-    out["precision"] = out["tp"] / (out["tp"] + out["fp"]).replace(0, np.nan)
-    out["recall"] = out["tp"] / (out["tp"] + out["fn"]).replace(0, np.nan)
-    out["f1"] = (2 * out["tp"] / (2 * out["tp"] + out["fp"] + out["fn"]).replace(0, np.nan)).fillna(0.0)
-    return out
+                         "precision": p, "recall": r, "f1": f1})
+            recs.append(pd.DataFrame({"model": name, "session": idx_te[~seen], "y": u_true, "pred": u_pred}))
+            log.info("HDFS seed %d %s on %d unseen sessions (%d anomalous): F1 %.3f", seed, name, len(u_true),
+                     u_true.sum(), f1)
+    rec = pd.concat(recs, ignore_index=True)
+    rng = np.random.default_rng(0)
+    for name, g in rec.groupby("model", sort=False):
+        g = g.assign(w=1.0 / g.groupby("session")["session"].transform("size"))
+        p, r, f1 = weighted_prf(g["y"].to_numpy(), g["pred"].to_numpy(), g["w"].to_numpy())
+        g = g.assign(tp=g["w"] * ((g["pred"] == 1) & (g["y"] == 1)), fp=g["w"] * ((g["pred"] == 1) & (g["y"] == 0)),
+                     fn=g["w"] * ((g["pred"] == 0) & (g["y"] == 1)))
+        per_s = g.groupby("session")[["tp", "fp", "fn"]].sum().to_numpy()  # one row per distinct session
+        sessions = np.arange(len(per_s))
+        draws = per_s[rng.choice(sessions, (n_boot, len(sessions)))].sum(axis=1)  # resample sessions
+        denom = 2 * draws[:, 0] + draws[:, 1] + draws[:, 2]
+        boot = np.where(denom > 0, 2 * draws[:, 0] / np.where(denom > 0, denom, 1), 0.0)
+        lo, hi = np.quantile(boot, [0.025, 0.975])
+        pos = int(g.drop_duplicates("session")["y"].sum())
+        rows.append({"model": name, "seed": "distinct_union", "n_unseen": len(sessions), "n_unseen_pos": pos,
+                     "precision": p, "recall": r, "f1": f1, "f1_ci_low": lo, "f1_ci_high": hi})
+        log.info("HDFS %s distinct union: %d sessions (%d anomalous), F1 %.3f [%.3f, %.3f]", name, len(sessions), pos,
+                 f1, lo, hi)
+    return pd.DataFrame(rows)
 
 
 def overlap_rows(x_all: np.ndarray, y_all: np.ndarray, seeds: list[int]) -> pd.DataFrame:
     rows = []
     for seed in seeds:
-        _, _, y_tr, y_te, seen = hdfs_split(x_all, y_all, seed)
+        _, _, y_tr, y_te, _, seen = hdfs_split(x_all, y_all, seed)
         rows.append({"seed": seed, "n_train": len(y_tr), "n_test": len(y_te), "n_test_pos": int(y_te.sum()),
                      "n_test_in_train": int(seen.sum()), "share_in_train": float(seen.mean()),
                      "n_unseen": int((~seen).sum()), "n_unseen_pos": int(y_te[~seen].sum())})
